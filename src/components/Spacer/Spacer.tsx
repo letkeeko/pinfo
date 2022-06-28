@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "./Spacer.style";
+import Wrapper from "./style.Spacer";
 
 export type SpacerProps = {
   mt?: number;

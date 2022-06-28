@@ -1,17 +1,18 @@
 import type { NextPage } from "next";
 import { COLOR } from "../components/variables";
+import Link from "next/link";
 import styled from "styled-components";
 import Seo from "../components/Seo";
 import NavBar from "../components/FrontPage/NavBar/NavBar";
-import InputBar from "../components/FrontPage/InputBar/InputBar";
 import Heading from "../components/Heading/Heading";
 import Text from "../components/Text/Text";
 import Spacer from "../components/Spacer/Spacer";
+import SignupForm from "../components/FrontPage/SignupForm/SignupForm";
 
-const Home: NextPage = () => {
+const Signup: NextPage = () => {
   return (
     <Wrapper>
-      <Seo title="Pinfo" description="TBD" />
+      <Seo title="Sign Up" description="TBD" />
 
       <div className="flex-row">
         <div className="col col--white">
@@ -19,24 +20,24 @@ const Home: NextPage = () => {
 
           <Spacer mt={48} />
 
-          <Heading as="h1">
-            Pin your <strong>FAQ&apos;s</strong>
-            <br />
-            or other information
-          </Heading>
+          <Heading as="h1">Free forever</Heading>
 
           <Spacer mb={8} />
 
-          <Text>A perfect way to share everything you have going on.</Text>
+          <Text>
+            Already have an account?{" "}
+            <Link href="/login">
+              <a>Sign in</a>
+            </Link>
+          </Text>
 
           <Spacer mt={42} />
-          <InputBar />
-          <Spacer mb={14} />
 
-          <Text>It&apos;s free, create your own page in minutes.</Text>
+          <SignupForm />
         </div>
+
         <div className="col col--blue">
-          <h1>Accordion</h1>
+          <h1>Picture</h1>
         </div>
       </div>
     </Wrapper>
@@ -69,4 +70,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default Home;
+export default Signup;

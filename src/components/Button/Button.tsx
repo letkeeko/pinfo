@@ -1,6 +1,6 @@
 import React from "react";
 import { BsTriangleFill, BsCircleFill } from "react-icons/bs";
-import Wrapper from "./Button.style";
+import Wrapper from "./style.Button";
 
 type ButtonTypes = {
   children: string;

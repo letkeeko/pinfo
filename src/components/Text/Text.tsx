@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "./Text.style";
+import Wrapper from "./style.Text";
 
 type TextProps = {
   children: React.ReactNode;
