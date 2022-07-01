@@ -7,6 +7,7 @@ const Wrapper = styled.nav`
   .logo {
     width: 50px;
     margin: 0 auto 26px auto;
+    display: block;
   }
 
   .bar {

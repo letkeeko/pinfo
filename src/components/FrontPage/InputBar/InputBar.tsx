@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "./InputBar.style";
+import Wrapper from "./style.InputBar";
 import Button from "../../Button/Button";
 
 const InputBar = () => {

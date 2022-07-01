@@ -1,5 +1,5 @@
 import React from "react";
-import { H1, H2 } from "./Heading.style";
+import { H1, H2 } from "./style.Heading";
 
 type HeadingProps = {
   children: React.ReactNode;

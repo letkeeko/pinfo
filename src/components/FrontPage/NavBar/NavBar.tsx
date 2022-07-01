@@ -1,14 +1,16 @@
 import React from "react";
 import Link from "next/link";
-import Wrapper from "./NavBar.style";
+import Wrapper from "./style.NavBar";
 import Logo from "../../../svg/logo";
 
 const Navbar = () => {
   return (
     <Wrapper>
-      <div className="logo">
-        <Logo />
-      </div>
+      <Link href="/">
+        <a className="logo">
+          <Logo />
+        </a>
+      </Link>
       <div className="bar">
         <a
           className="link"
