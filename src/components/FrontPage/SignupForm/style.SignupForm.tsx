@@ -5,16 +5,6 @@ const Wrapper = styled.div`
   max-width: 370px;
   width: 100%;
 
-  input {
-    margin: 0 0 25px 0;
-  }
-
-  button {
-    margin: 35px auto 0 auto;
-    max-width: max-content;
-    display: block;
-  }
-
   .username-input-wrap {
     position: relative;
 

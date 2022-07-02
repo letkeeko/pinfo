@@ -1,6 +1,7 @@
 export const COLOR = {
-  black: "#000000",
-  blue: "#0F6393",
+  black: "#3c3c3c",
+  blue: "#0F6393", //rgb(15, 99,147)
+  ice: "#EFF1F9",
   white: "#ffffff",
   yellow: "#FFBD11",
 };

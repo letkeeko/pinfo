@@ -3,6 +3,7 @@ import Link from "next/link";
 import Wrapper from "./style.SignupForm";
 import Input from "../../Input/Input";
 import Button from "../../Button/Button";
+import Spacer from "../../Spacer/Spacer";
 
 const LoginForm = () => {
   return (
@@ -13,7 +14,11 @@ const LoginForm = () => {
           <Input type="text" placeholder="Username" label="Username" required />
         </div>
 
+        <Spacer mt={25} />
+
         <Input type="email" label="Email address" required />
+
+        <Spacer mt={25} />
 
         <Input
           type="password"
@@ -21,6 +26,8 @@ const LoginForm = () => {
           label="Password"
           required
         />
+
+        <Spacer mt={25} />
 
         <div className="checkbox-wrap">
           <input id="terms" type="checkbox" />{" "}
@@ -31,8 +38,8 @@ const LoginForm = () => {
             </Link>
           </label>
         </div>
-
-        <Button>SIGN UP</Button>
+        <Spacer mt={35} />
+        <Button align="center">SIGN UP</Button>
       </form>
     </Wrapper>
   );

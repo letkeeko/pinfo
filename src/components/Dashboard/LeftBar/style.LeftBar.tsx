@@ -10,11 +10,11 @@ const Wrapper = styled.aside`
   display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  width: 64px;
+  min-width: 70px;
   z-index: 3;
 
   .logo {
-    width: 36px;
+    width: 30px;
     display: block;
     margin: 0 auto;
   }

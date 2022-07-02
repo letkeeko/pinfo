@@ -10,6 +10,7 @@ import Spacer from "../components/Spacer/Spacer";
 import LeftBar from "../components/Dashboard/LeftBar/LeftBar";
 import TopBar from "../components/Dashboard/TopBar/TopBar";
 import TextEditor from "../components/Dashboard/TextEditor/TextEditor";
+import Pins from "../components/Dashboard/Panels/Pins/Pins";
 
 const Admin: NextPage = () => {
   return (
@@ -19,7 +20,7 @@ const Admin: NextPage = () => {
       <div className="flex-row">
         <TopBar />
         <div className="col col--edit-panel">
-          <TextEditor />
+          <Pins />
         </div>
         <div className="col col--preview">Preview here</div>
       </div>
@@ -34,17 +35,19 @@ const Wrapper = styled.div`
   .flex-row {
     display: flex;
     position: relative;
-    padding: 0 0 0 64px;
-    min-height: 100vh;
+    padding: 0 0 0 70px;
 
     .col {
       &--edit-panel {
-        width: 80%;
-        padding: 142px 42px;
+        background-color: ${COLOR.ice};
+        width: 55%;
+        padding: 140px 35px;
+        height: 100vh;
+        overflow: scroll;
       }
 
       &--preview {
-        width: 20%;
+        width: 45%;
         border-left: 1px solid rgba(0, 0, 0, 0.1);
         padding: 42px 0 0 0;
       }

@@ -1,14 +1,14 @@
 import React from "react";
 import Wrapper from "./style.Text";
 
-type TextProps = {
-  children: React.ReactNode;
-};
-
 const Text = (props: TextProps) => {
   const { children } = props;
 
   return <Wrapper>{children}</Wrapper>;
+};
+
+type TextProps = {
+  children: React.ReactNode;
 };
 
 export default Text;

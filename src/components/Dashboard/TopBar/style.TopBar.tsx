@@ -14,50 +14,49 @@ const Wrapper = styled.nav`
   .menu-list {
     width: 100%;
     display: flex;
-    padding: 0 0 0 64px;
+    padding: 0 0 0 70px; // this padding-left is based on left bar width
 
     &__each {
-      padding: 0;
-
-      padding: 0 34px;
-
       position: relative;
       display: block;
 
       &--active {
         &::after {
-          content: "";
           background-color: ${COLOR.blue};
+          content: "";
           height: 2px;
           width: 100%;
           position: absolute;
           left: 0;
-          bottom: -6px;
+          bottom: -20px;
         }
       }
 
       .btn {
-        cursor: pointer;
         color: ${COLOR.blue};
+        cursor: pointer;
         background-color: transparent;
         border: 0;
-        font-size: 0.775rem;
+        font-size: 0.925rem;
         line-height: 30px;
+        padding: 0 48px;
       }
     }
 
     .col {
       width: 50%;
       display: flex;
-      height: 42px;
+      height: 70px;
       align-items: center;
 
       &--one {
+        width: 55%;
       }
 
       &--two {
         justify-content: flex-end;
         border-left: 1px solid rgba(0, 0, 0, 0.1);
+        width: 45%;
       }
     }
   }
