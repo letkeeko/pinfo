@@ -12,7 +12,7 @@ const Wrapper = styled.nav`
 
   .bar {
     background-color: ${COLOR.white};
-    box-shadow: 0 5px 12px -2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 12px -2px rgba(60, 60, 60, 0.125);
     border-radius: 7px;
     display: flex;
     padding: 10px 20px;

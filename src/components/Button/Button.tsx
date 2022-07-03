@@ -1,21 +1,41 @@
 import React from "react";
-import { BsTriangleFill, BsCircleFill } from "react-icons/bs";
+import {
+  BsTriangleFill,
+  BsCircleFill,
+  BsFillRecordFill,
+  BsPlusLg,
+  BsPlusCircle,
+  BsPlus,
+  BsPlusCircleFill,
+} from "react-icons/bs";
 import Wrapper from "./style.Button";
 
-type ButtonTypes = {
-  children: string;
-};
-
 const Button = (props: ButtonTypes) => {
-  const { children } = props;
+  const { children, variant, align, onClick } = props;
+
+  if (variant === "solid") {
+    return (
+      <Wrapper variant={variant} align={align} onClick={onClick}>
+        <BsPlusLg className="icon icon--front" role="presentation" />
+        <span className="label">{children}</span>
+      </Wrapper>
+    );
+  }
 
   return (
-    <Wrapper>
-      <BsCircleFill className="icon icon--circle" role="presentation" />
-      <BsTriangleFill className="icon icon--triangle" role="presentation" />
+    <Wrapper align={align} onClick={onClick}>
+      <BsCircleFill className="icon icon--behind" role="presentation" />
+      <BsTriangleFill className="icon icon--front" role="presentation" />
       <span className="label">{children}</span>
     </Wrapper>
   );
+};
+
+export type ButtonTypes = {
+  children: React.ReactNode;
+  variant?: string;
+  align?: string;
+  onClick?: () => void;
 };
 
 export default Button;

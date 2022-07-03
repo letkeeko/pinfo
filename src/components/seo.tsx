@@ -1,10 +1,5 @@
 import Head from "next/head";
 
-type SeoTypes = {
-  title: string;
-  description: string;
-};
-
 const Seo = (props: SeoTypes) => {
   const { title, description } = props;
 
@@ -14,6 +9,11 @@ const Seo = (props: SeoTypes) => {
       <meta name="description" content={description} />
     </Head>
   );
+};
+
+type SeoTypes = {
+  title: string;
+  description: string;
 };
 
 export default Seo;

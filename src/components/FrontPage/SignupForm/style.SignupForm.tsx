@@ -5,16 +5,6 @@ const Wrapper = styled.div`
   max-width: 370px;
   width: 100%;
 
-  input {
-    margin: 0 0 25px 0;
-  }
-
-  button {
-    margin: 35px auto 0 auto;
-    max-width: max-content;
-    display: block;
-  }
-
   .username-input-wrap {
     position: relative;
 
@@ -22,7 +12,7 @@ const Wrapper = styled.div`
       position: absolute;
       top: 30px;
       left: 13px;
-      color: rgba(0, 0, 0, 0.35);
+      color: rgba(60, 60, 60, 0.35);
       pointer-events: none;
     }
 

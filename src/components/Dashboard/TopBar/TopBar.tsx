@@ -13,13 +13,7 @@ const TopBar = () => {
             <button className="btn">Appearance</button>
           </li>
           <li className="menu-list__each">
-            <button className="btn">Social links</button>
-          </li>
-          <li className="menu-list__each">
-            <button className="btn">SEO</button>
-          </li>
-          <li className="menu-list__each">
-            <button className="btn">Views</button>
+            <button className="btn">Links</button>
           </li>
         </div>
 

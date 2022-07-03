@@ -9,12 +9,12 @@ const Wrapper = styled.aside`
   padding: 20px 0;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  width: 64px;
+  border-right: 1px solid rgba(60, 60, 60, 0.125);
+  min-width: 70px;
   z-index: 3;
 
   .logo {
-    width: 36px;
+    width: 30px;
     display: block;
     margin: 0 auto;
   }

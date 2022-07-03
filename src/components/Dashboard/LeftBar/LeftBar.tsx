@@ -2,7 +2,7 @@ import React from "react";
 import Wrapper from "./style.LeftBar";
 import Link from "next/link";
 
-import Logo from "../../../svg/logo";
+import Logo from "../../../svg/monogram";
 
 const LeftBar = () => {
   const handleClick = () => {
