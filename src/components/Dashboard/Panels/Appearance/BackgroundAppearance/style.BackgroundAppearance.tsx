@@ -4,7 +4,6 @@ import { COLOR } from "../../../../variables";
 const Wrapper = styled.div`
   .card {
     background-color: ${COLOR.white};
-
     border-radius: 8px;
     margin: 18px 0 0 0;
     box-shadow: 0 5px 12px -2px rgba(60, 60, 60, 0.075);

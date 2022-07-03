@@ -2,24 +2,31 @@ import React from "react";
 import Text from "../../../../Text/Text";
 import Spacer from "../../../../Spacer/Spacer";
 import ColorPicker from "../../../ColorPicker/ColorPicker";
+import useStore from "../store.Appearance";
 
-const BackgroundSettings = (props: Settings) => {
-  const {
-    setting,
-    background,
-    handleChange,
-    handleActiveColorPickers,
-    activeColorPickers,
-  } = props;
+const BackgroundSettings = () => {
+  const background = useStore(({ background }) => background);
 
-  if (setting === "gradient") {
+  const handleChange = useStore(({ handleChange }) => handleChange);
+
+  const handleActiveColorPickers = useStore(
+    ({ handleActiveColorPickers }) => handleActiveColorPickers
+  );
+
+  const activeColorPickers = useStore(
+    ({ activeColorPickers }) => activeColorPickers
+  );
+
+  const { variant, gradient1, gradient2, grainy, flat } = background;
+
+  if (variant === "gradient") {
     return (
       <div className="settings">
         <Text>Background color</Text>
         <Spacer mb={18} />
         <ColorPicker
           variant="gradient1"
-          color={background.gradient1}
+          color={gradient1}
           activeColorPickers={activeColorPickers}
           handleChange={handleChange}
           handleActiveColorPickers={handleActiveColorPickers}
@@ -27,7 +34,7 @@ const BackgroundSettings = (props: Settings) => {
         <Spacer mb={27} />
         <ColorPicker
           variant="gradient2"
-          color={background.gradient2}
+          color={gradient2}
           activeColorPickers={activeColorPickers}
           handleChange={handleChange}
           handleActiveColorPickers={handleActiveColorPickers}
@@ -36,14 +43,14 @@ const BackgroundSettings = (props: Settings) => {
     );
   }
 
-  if (setting === "grainy") {
+  if (variant === "grainy") {
     return (
       <div className="settings">
         <Text>Background color</Text>
         <Spacer mb={18} />
         <ColorPicker
           variant="grainy"
-          color={background.grainy}
+          color={grainy}
           activeColorPickers={activeColorPickers}
           handleChange={handleChange}
           handleActiveColorPickers={handleActiveColorPickers}
@@ -52,7 +59,7 @@ const BackgroundSettings = (props: Settings) => {
     );
   }
 
-  if (setting === "image") {
+  if (variant === "image") {
     return (
       <div className="settings">
         <Text>Upload image</Text>
@@ -66,28 +73,13 @@ const BackgroundSettings = (props: Settings) => {
       <Spacer mb={18} />
       <ColorPicker
         variant="flat"
-        color={background.flat}
+        color={flat}
         activeColorPickers={activeColorPickers}
         handleChange={handleChange}
         handleActiveColorPickers={handleActiveColorPickers}
       />
     </div>
   );
-};
-
-type Settings = {
-  handleChange: (key: string, value: string) => void;
-  handleActiveColorPickers: (value: string) => void;
-  activeColorPickers: string[];
-  setting: string;
-  background: {
-    image?: string | null;
-    grainy: string;
-    gradient1: string;
-    gradient2: string;
-    flat: string;
-    variant: string;
-  };
 };
 
 export default BackgroundSettings;

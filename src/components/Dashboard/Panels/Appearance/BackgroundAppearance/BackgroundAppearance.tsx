@@ -3,15 +3,14 @@ import Wrapper from "./style.BackgroundAppearance";
 import Text from "../../../../Text/Text";
 import { TbPhoto } from "react-icons/tb";
 import BackgroundSettings from "./BackgroundSettings";
+import useStore from "../store.Appearance";
 
-const BackgroundAppearance = (props: BackgroundAppearance) => {
-  const {
-    background,
-    activeColorPickers,
-    handleChange,
-    handleActiveVariant,
-    handleActiveColorPickers,
-  } = props;
+const BackgroundAppearance = () => {
+  const handleActiveVariant = useStore(
+    ({ handleActiveVariant }) => handleActiveVariant
+  );
+
+  const background = useStore(({ background }) => background);
 
   const getActiveClassName = (value: string) => {
     if (value === background.variant) {
@@ -58,31 +57,10 @@ const BackgroundAppearance = (props: BackgroundAppearance) => {
           </li>
         </ul>
 
-        <BackgroundSettings
-          setting={background.variant}
-          background={background}
-          activeColorPickers={activeColorPickers}
-          handleChange={handleChange}
-          handleActiveColorPickers={handleActiveColorPickers}
-        />
+        <BackgroundSettings />
       </div>
     </Wrapper>
   );
-};
-
-type BackgroundAppearance = {
-  handleChange: (key: string, value: string) => void;
-  handleActiveVariant: (value: string) => void;
-  handleActiveColorPickers: (value: string) => void;
-  activeColorPickers: string[];
-  background: {
-    image?: string | null;
-    grainy: string;
-    gradient1: string;
-    gradient2: string;
-    flat: string;
-    variant: string;
-  };
 };
 
 export default BackgroundAppearance;

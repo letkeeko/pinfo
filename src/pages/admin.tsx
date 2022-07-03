@@ -15,7 +15,7 @@ const Admin: NextPage = () => {
       <div className="flex-row">
         <TopBar />
         <div className="col col--edit-panel">
-          {/* <Pins /> */}
+          <Pins />
           <Appearance />
         </div>
         <div className="col col--preview">Preview here</div>

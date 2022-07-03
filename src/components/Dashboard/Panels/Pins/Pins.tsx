@@ -3,76 +3,28 @@ import Wrapper from "./style.Pins";
 import TextEditor from "../../TextEditor/TextEditor";
 import Button from "../../../Button/Button";
 import Spacer from "../../../Spacer/Spacer";
-
-const getEmptyPin = (id: number) => {
-  return {
-    id,
-    title: "",
-    description: "",
-    isDeletePrompt: false,
-  };
-};
+import useStore from "./store.Pins";
 
 const Pins = () => {
-  const [pins, setPins] = useState([getEmptyPin(1)]);
+  const pins = useStore(({ pins }) => pins);
+
+  const handleChangePin = useStore(({ handleChangePin }) => handleChangePin);
 
   // delete prompt confirmation tracker
-  const [deletePrompt, setDeletePrompt] = useState<number[]>([]);
+  const deletePrompt = useStore(({ deletePrompt }) => deletePrompt);
 
   // expanded pin tracker
-  const [expandPins, setExpandPins] = useState<number[]>([]);
+  const expandPins = useStore(({ expandPins }) => expandPins);
 
-  const handleAddPin = () => {
-    // simply increment id for new pin
-    const currentLastId = pins[pins.length - 1];
-    setPins([...pins, getEmptyPin(currentLastId.id + 1)]);
-  };
+  const handleAddPin = useStore(({ handleAddPin }) => handleAddPin);
 
-  const handleDeletePin = (id: number) => {
-    // not-allowed to delete if there's only one element
-    if (pins.length === 1) {
-      return;
-    }
+  const handleDeletePin = useStore(({ handleDeletePin }) => handleDeletePin);
 
-    // filter out based on selected id
-    const filteredPins = pins.filter((pin) => pin.id !== id);
-    setPins(filteredPins);
+  const handleDeletePrompt = useStore(
+    ({ handleDeletePrompt }) => handleDeletePrompt
+  );
 
-    // delete its id in prompt as well
-    const filteredDeletePrompt = deletePrompt.filter((pinId) => pinId !== id);
-    setDeletePrompt(filteredDeletePrompt);
-
-    // delete its id in expand as well
-    const filteredExpandPins = expandPins.filter((pinId) => pinId !== id);
-    setExpandPins(filteredExpandPins);
-  };
-
-  const handleDeletePrompt = (id: number) => {
-    // not-allowed to prompt if there's only one element
-    if (pins.length === 1) {
-      return;
-    }
-
-    if (deletePrompt.includes(id)) {
-      const filteredDeletePrompt = deletePrompt.filter((pinId) => pinId !== id);
-      setDeletePrompt(filteredDeletePrompt);
-
-      return;
-    }
-
-    setDeletePrompt([...deletePrompt, id]);
-  };
-
-  const handleExpandPins = (id: number) => {
-    if (expandPins.includes(id)) {
-      const filteredExpandPins = expandPins.filter((pinId) => pinId !== id);
-      setExpandPins(filteredExpandPins);
-
-      return;
-    }
-
-    setExpandPins([...expandPins, id]);
-  };
+  const handleExpandPins = useStore(({ handleExpandPins }) => handleExpandPins);
 
   return (
     <Wrapper>
@@ -81,7 +33,7 @@ const Pins = () => {
           <TextEditor
             pinId={pin.id}
             pins={pins}
-            setPins={setPins}
+            setPins={handleChangePin}
             handleDeletePin={handleDeletePin}
             handleDeletePrompt={handleDeletePrompt}
             deletePrompt={deletePrompt}
