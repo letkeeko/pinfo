@@ -12,7 +12,7 @@ const Wrapper = styled.div`
       position: absolute;
       top: 30px;
       left: 13px;
-      color: rgba(0, 0, 0, 0.35);
+      color: rgba(60, 60, 60, 0.35);
       pointer-events: none;
     }
 

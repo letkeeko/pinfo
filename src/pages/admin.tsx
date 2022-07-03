@@ -2,15 +2,10 @@ import type { NextPage } from "next";
 import { COLOR } from "../components/variables";
 import styled from "styled-components";
 import Seo from "../components/Seo";
-import NavBar from "../components/FrontPage/NavBar/NavBar";
-import InputBar from "../components/FrontPage/InputBar/InputBar";
-import Heading from "../components/Heading/Heading";
-import Text from "../components/Text/Text";
-import Spacer from "../components/Spacer/Spacer";
 import LeftBar from "../components/Dashboard/LeftBar/LeftBar";
 import TopBar from "../components/Dashboard/TopBar/TopBar";
-import TextEditor from "../components/Dashboard/TextEditor/TextEditor";
 import Pins from "../components/Dashboard/Panels/Pins/Pins";
+import Appearance from "../components/Dashboard/Panels/Appearance/Appearance";
 
 const Admin: NextPage = () => {
   return (
@@ -20,7 +15,8 @@ const Admin: NextPage = () => {
       <div className="flex-row">
         <TopBar />
         <div className="col col--edit-panel">
-          <Pins />
+          {/* <Pins /> */}
+          <Appearance />
         </div>
         <div className="col col--preview">Preview here</div>
       </div>
@@ -40,15 +36,15 @@ const Wrapper = styled.div`
     .col {
       &--edit-panel {
         background-color: ${COLOR.ice};
-        width: 55%;
+        width: 50%;
         padding: 140px 35px;
         height: 100vh;
         overflow: scroll;
       }
 
       &--preview {
-        width: 45%;
-        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        width: 50%;
+        border-left: 1px solid rgba(60, 60, 60, 0.125);
         padding: 42px 0 0 0;
       }
     }

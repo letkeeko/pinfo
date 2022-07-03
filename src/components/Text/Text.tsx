@@ -2,13 +2,14 @@ import React from "react";
 import Wrapper from "./style.Text";
 
 const Text = (props: TextProps) => {
-  const { children } = props;
+  const { children, align } = props;
 
-  return <Wrapper>{children}</Wrapper>;
+  return <Wrapper align={align || "left"}>{children}</Wrapper>;
 };
 
-type TextProps = {
+export type TextProps = {
   children: React.ReactNode;
+  align?: string;
 };
 
 export default Text;

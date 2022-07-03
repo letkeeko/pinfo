@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Wrapper from "./Pins.style";
+import Wrapper from "./style.Pins";
 import TextEditor from "../../TextEditor/TextEditor";
 import Button from "../../../Button/Button";
 import Spacer from "../../../Spacer/Spacer";

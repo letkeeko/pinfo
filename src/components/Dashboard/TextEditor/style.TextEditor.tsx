@@ -9,16 +9,15 @@ const Wrapper = styled.div<WrapperProps>`
   background-color: ${COLOR.white};
   border-radius: 8px;
   position: relative;
-  max-width: 610px;
   margin: 0 auto;
   overflow: hidden;
-  box-shadow: 0 5px 12px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 12px -2px rgba(60, 60, 60, 0.075);
 
   .title-wrap {
     display: flex;
     align-items: center;
     padding: 15px 17px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(60, 60, 60, 0.125);
 
     &__icon {
       display: block;
@@ -47,11 +46,11 @@ const Wrapper = styled.div<WrapperProps>`
     overflow: ${({ isExpand }) => (isExpand ? "hidden" : "visible")};
 
     .ql-toolbar {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+      border-bottom: 1px solid rgba(60, 60, 60, 0.125) !important;
       padding: 0;
 
       .ql-formats {
-        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        border-right: 1px solid rgba(60, 60, 60, 0.125);
         padding: 4px 8px;
         margin: 0;
 

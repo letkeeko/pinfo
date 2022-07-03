@@ -9,7 +9,7 @@ const Wrapper = styled.aside`
   padding: 20px 0;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(60, 60, 60, 0.125);
   min-width: 70px;
   z-index: 3;
 
