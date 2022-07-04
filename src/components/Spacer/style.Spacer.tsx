@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { COLOR } from "../variables";
 import { SpacerProps } from "./Spacer";
 
 const Wrapper = styled.div<SpacerProps>`
