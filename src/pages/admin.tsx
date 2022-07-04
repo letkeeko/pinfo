@@ -2,10 +2,10 @@ import type { NextPage } from "next";
 import { COLOR } from "../components/variables";
 import styled from "styled-components";
 import Seo from "../components/Seo";
-import LeftBar from "../components/Dashboard/LeftBar/LeftBar";
-import TopBar from "../components/Dashboard/TopBar/TopBar";
-import Pins from "../components/Dashboard/Panels/Pins/Pins";
-import Appearance from "../components/Dashboard/Panels/Appearance/Appearance";
+import LeftBar from "../components/LeftBar/LeftBar";
+import TopBar from "../components/TopBar/TopBar";
+import Pins from "../components/Panels/Pins/Pins";
+import Appearance from "../components/Panels/Appearance/Appearance";
 
 const Admin: NextPage = () => {
   return (

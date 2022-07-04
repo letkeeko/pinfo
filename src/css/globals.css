@@ -221,3 +221,416 @@ a,
 button {
   transition: all 0.2s ease-in-out;
 }
+
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/barlow/Barlow-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/barlow/Barlow-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/barlow/Barlow-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/barlow/Barlow-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Cairo";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/cairo/Cairo-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Cairo";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/cairo/Cairo-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Cairo";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/cairo/Cairo-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Cairo";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/cairo/Cairo-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/inter/Inter-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/inter/Inter-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/inter/Inter-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/inter/Inter-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""),
+    url("../fonts/montserrat/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""),
+    url("../fonts/montserrat/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""),
+    url("../fonts/montserrat/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""),
+    url("../fonts/montserrat/Montserrat-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Mukta";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/mukta/Mukta-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Mukta";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/mukta/Mukta-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Mukta";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/mukta/Mukta-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Mukta";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/mukta/Mukta-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/nunito/Nunito-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/nunito/Nunito-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/nunito/Nunito-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/nunito/Nunito-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/poppins/Poppins-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/poppins/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/poppins/Poppins-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/poppins/Poppins-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""),
+    url("../fonts/quicksand/Quicksand-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""),
+    url("../fonts/quicksand/Quicksand-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""),
+    url("../fonts/quicksand/Quicksand-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""),
+    url("../fonts/quicksand/Quicksand-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/raleway/Raleway-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/raleway/Raleway-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/raleway/Raleway-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/raleway/Raleway-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/roboto/Roboto-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/roboto/Roboto-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/roboto/Roboto-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/roboto/Roboto-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/rubik/Rubik-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/rubik/Rubik-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/rubik/Rubik-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/rubik/Rubik-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/ubuntu/Ubuntu-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/ubuntu/Ubuntu-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/ubuntu/Ubuntu-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/ubuntu/Ubuntu-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/urbanist/Urbanist-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""),
+    url("../fonts/urbanist/Urbanist-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""),
+    url("../fonts/urbanist/Urbanist-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/urbanist/Urbanist-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Georama";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/georama/Georama-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Georama";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/georama/Georama-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Georama";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/georama/Georama-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Georama";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/georama/Georama-Bold.ttf") format("truetype");
+}
+
+/* ==================== */
+
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/oswald/Oswald-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/oswald/Oswald-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/oswald/Oswald-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/oswald/Oswald-Bold.ttf") format("truetype");
+}
