@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "./style.Spacer";
+import Wrapper from "./Spacer.style";
 
 const Spacer = (props: SpacerProps) => {
   const { mt, mr, mb, ml } = props;

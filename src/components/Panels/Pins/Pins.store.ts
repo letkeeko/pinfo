@@ -9,7 +9,7 @@ const getEmptyPin = (id: number) => {
   };
 };
 
-const useStore = create<PinsProps>((set) => ({
+const useStore = create<PinsProps>((set, get) => ({
   pins: [getEmptyPin(1)],
 
   deletePrompt: [],
@@ -43,11 +43,6 @@ const useStore = create<PinsProps>((set) => ({
     set((state) => {
       const { pins, deletePrompt, expandPins } = state;
 
-      // not-allowed to delete if there's only one element
-      if (pins.length === 1) {
-        return { ...state };
-      }
-
       // filter out based on selected id
       const filteredPins = pins.filter((pin) => pin.id !== id);
 
@@ -67,50 +62,43 @@ const useStore = create<PinsProps>((set) => ({
   },
 
   handleDeletePrompt: (id) => {
-    set((state) => {
-      const { pins, deletePrompt } = state;
+    const deletePrompt = get().deletePrompt;
 
-      // not-allowed to prompt if there's only one element
-      if (pins.length === 1) {
-        return { ...state };
-      }
+    if (deletePrompt.includes(id)) {
+      const filteredDeletePrompt = deletePrompt.filter((pinId) => pinId !== id);
 
-      if (deletePrompt.includes(id)) {
-        const filteredDeletePrompt = deletePrompt.filter(
-          (pinId) => pinId !== id
-        );
-
-        return {
-          ...state,
-          deletePrompt: [...filteredDeletePrompt],
-        };
-      }
-
-      return {
+      set((state) => ({
         ...state,
-        deletePrompt: [...deletePrompt, id],
-      };
-    });
+        deletePrompt: [...filteredDeletePrompt],
+      }));
+
+      return;
+    }
+
+    set((state) => ({
+      ...state,
+      deletePrompt: [...deletePrompt, id],
+    }));
   },
 
   handleExpandPins: (id) => {
-    set((state) => {
-      const { expandPins } = state;
+    const expandPins = get().expandPins;
 
-      if (expandPins.includes(id)) {
-        const filteredExpandPins = expandPins.filter((pinId) => pinId !== id);
+    if (expandPins.includes(id)) {
+      const filteredExpandPins = expandPins.filter((pinId) => pinId !== id);
 
-        return {
-          ...state,
-          expandPins: filteredExpandPins,
-        };
-      }
-
-      return {
+      set((state) => ({
         ...state,
-        expandPins: [...expandPins, id],
-      };
-    });
+        expandPins: filteredExpandPins,
+      }));
+
+      return;
+    }
+
+    set((state) => ({
+      ...state,
+      expandPins: [...expandPins, id],
+    }));
   },
 }));
 

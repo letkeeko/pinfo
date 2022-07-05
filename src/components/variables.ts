@@ -4,6 +4,8 @@ export const COLOR = {
   ice: "#EFF1F9",
   white: "#ffffff",
   yellow: "#FFBD11",
+  green: "#4FB783",
+  red: "#FF6B6B",
 };
 
 export const SCREEN = {

@@ -6,6 +6,7 @@ import LeftBar from "../components/LeftBar/LeftBar";
 import TopBar from "../components/TopBar/TopBar";
 import Pins from "../components/Panels/Pins/Pins";
 import Appearance from "../components/Panels/Appearance/Appearance";
+import Links from "../components/Panels/Links/Links";
 
 const Admin: NextPage = () => {
   return (
@@ -15,8 +16,9 @@ const Admin: NextPage = () => {
       <div className="flex-row">
         <TopBar />
         <div className="col col--edit-panel">
-          <Pins />
-          <Appearance />
+          {/* <Pins /> */}
+          {/* <Appearance /> */}
+          <Links />
         </div>
         <div className="col col--preview">Preview here</div>
       </div>

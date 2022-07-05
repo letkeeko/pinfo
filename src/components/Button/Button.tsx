@@ -8,7 +8,7 @@ import {
   BsPlus,
   BsPlusCircleFill,
 } from "react-icons/bs";
-import Wrapper from "./style.Button";
+import Wrapper from "./Button.style";
 
 const Button = (props: ButtonTypes) => {
   const { children, variant, align, onClick } = props;

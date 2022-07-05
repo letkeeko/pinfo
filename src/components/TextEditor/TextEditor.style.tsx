@@ -10,8 +10,8 @@ const Wrapper = styled.div<WrapperProps>`
   border-radius: 8px;
   position: relative;
   margin: 0 auto;
-  overflow: hidden;
   box-shadow: 0 5px 12px -2px rgba(60, 60, 60, 0.075);
+  z-index: 4;
 
   .title-wrap {
     display: flex;
@@ -307,50 +307,15 @@ const Wrapper = styled.div<WrapperProps>`
       font-size: 1rem;
       margin: 0 0 0 18px;
       padding: 0;
+      position: relative;
 
       &:focus {
-        background-color: rgba(15, 99, 147, 0.075);
+        /* background-color: rgba(15, 99, 147, 0.075); */
       }
 
       &--lg {
         font-size: 1.3rem;
         margin: 0 0 -5px 0;
-      }
-    }
-
-    .delete-confirmation {
-      position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 0 18px 0 0;
-      left: 0;
-      background-color: ${COLOR.blue};
-      width: 100%;
-      bottom: 0;
-      height: 100%;
-
-      &__label {
-        color: ${COLOR.white};
-        font-size: 0.775rem;
-        margin: 0 10px 0 0;
-      }
-
-      &__trigger {
-        color: ${COLOR.white};
-        background-color: transparent;
-
-        cursor: pointer;
-        border: 0;
-        line-height: 30px;
-        font-size: 0.775rem;
-        padding: 0;
-        margin: 0 0 0 18px;
-        padding: 0 9px;
-
-        &--underline {
-          text-decoration: underline;
-        }
       }
     }
   }

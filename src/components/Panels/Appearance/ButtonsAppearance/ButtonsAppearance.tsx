@@ -1,9 +1,9 @@
 import React from "react";
-import Wrapper from "./style.ButtonsAppearance";
+import Wrapper from "./ButtonsAppearance.style";
 import Text from "../../../Text/Text";
 import ColorPicker from "../../../ColorPicker/ColorPicker";
 import Spacer from "../../../Spacer/Spacer";
-import useStore from "../store.Appearance";
+import useStore from "../Appearance.store";
 
 const BackgroundAppearance = () => {
   const button = useStore(({ button }) => button);

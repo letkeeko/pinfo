@@ -1,5 +1,5 @@
 import React from "react";
-import { H1, H2 } from "./style.Heading";
+import { H1, H2 } from "./Heading.style";
 
 const Heading = (props: HeadingProps) => {
   const { as, children } = props;
