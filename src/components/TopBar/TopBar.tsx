@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "./style.TopBar";
+import Wrapper from "./TopBar.style";
 
 const TopBar = () => {
   return (

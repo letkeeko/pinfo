@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "./style.Input";
+import Wrapper from "./Input.style";
 
 type InputProps = {
   type: string;

@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "./style.ColorPicker";
+import Wrapper from "./ColorPicker.style";
 import { HexColorPicker, HexColorInput } from "react-colorful";
 
 const ColorPicker = (props: ColorPickerTypes) => {

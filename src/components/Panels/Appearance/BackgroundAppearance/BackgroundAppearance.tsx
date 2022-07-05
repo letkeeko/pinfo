@@ -1,8 +1,8 @@
 import React from "react";
-import Wrapper from "./style.BackgroundAppearance";
+import Wrapper from "./BackgroundAppearance.style";
 import Text from "../../../Text/Text";
 import { TbPhoto } from "react-icons/tb";
-import useStore from "../store.Appearance";
+import useStore from "../Appearance.store";
 import Spacer from "../../../Spacer/Spacer";
 import ColorPicker from "../../../ColorPicker/ColorPicker";
 

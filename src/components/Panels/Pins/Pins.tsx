@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Wrapper from "./style.Pins";
+import Wrapper from "./Pins.style";
 import TextEditor from "../../TextEditor/TextEditor";
 import Button from "../../Button/Button";
 import Spacer from "../../Spacer/Spacer";
-import useStore from "./store.Pins";
+import useStore from "./Pins.store";
 
 const Pins = () => {
   const pins = useStore(({ pins }) => pins);
@@ -36,7 +36,7 @@ const Pins = () => {
             setPins={handleChangePin}
             handleDeletePin={handleDeletePin}
             handleDeletePrompt={handleDeletePrompt}
-            deletePrompt={deletePrompt}
+            isDeletePrompted={deletePrompt.includes(pin.id)}
             handleExpandPins={handleExpandPins}
             expandPins={expandPins}
           />

@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "./style.LeftBar";
+import Wrapper from "./LeftBar.style";
 import Link from "next/link";
 
 import Logo from "../../svg/monogram";
