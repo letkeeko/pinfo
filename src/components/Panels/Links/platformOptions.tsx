@@ -2,7 +2,6 @@ import React from "react";
 import {
   FaGlobe,
   FaStore,
-  FaRegEnvelope,
   FaBehance,
   FaDiscord,
   FaDribbble,
@@ -40,7 +39,6 @@ export type platformTypes = {
 const platformOptions: platformTypes = [
   { value: "website", label: "Website", icon: <FaGlobe /> },
   { value: "store", label: "Store", icon: <FaStore /> },
-  { value: "email", label: "Email", icon: <FaRegEnvelope /> },
   { value: "behance", label: "Behance", icon: <FaBehance /> },
   { value: "discord", label: "Discord", icon: <FaDiscord /> },
   { value: "dribbble", label: "Dribbble", icon: <FaDribbble /> },

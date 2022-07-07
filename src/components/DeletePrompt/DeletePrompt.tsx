@@ -1,7 +1,6 @@
 // parent container must have css position:relative
 import React from "react";
 import Wrapper from "./DeletePrompt.style";
-import BlankOverlay from "../BlankOverlay/BlankOverlay";
 
 const DeletePrompt = (props: DeletePrompTypes) => {
   const { triggerDelete, triggerCancel } = props;
@@ -13,8 +12,6 @@ const DeletePrompt = (props: DeletePrompTypes) => {
       <button className="prompt-btn" onClick={triggerCancel}>
         Cancel
       </button>
-
-      {/* <BlankOverlay /> */}
     </Wrapper>
   );
 };

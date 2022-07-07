@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-
+import React from "react";
 import Button from "../../Button/Button";
 import Spacer from "../../Spacer/Spacer";
 import useStore from "./Links.store";
 import LinksModal from "./LinksModal";
 import LinkField from "./LinkField";
+import Text from "../../Text/Text";
+import { COLOR } from "../../variables";
 
 const Links = () => {
   const links = useStore(({ links }) => links);
@@ -20,6 +21,8 @@ const Links = () => {
   );
 
   const handleDeleteLink = useStore(({ handleDeleteLink }) => handleDeleteLink);
+
+  const invalidUrls = useStore(({ invalidUrls }) => invalidUrls);
 
   return (
     <>
@@ -37,13 +40,20 @@ const Links = () => {
             <Spacer mb={30} />
           </React.Fragment>
         ))}
+      <Spacer mb={30} />
 
-      <Spacer mb={75} />
+      {!!invalidUrls.length && (
+        <Text align="center">
+          <span style={{ color: COLOR.red }}>
+            Please put valid URL and starts with https://
+          </span>
+        </Text>
+      )}
 
+      <Spacer mb={60} />
       <Button variant="solid" align="center" onClick={handleModal}>
         ADD NEW LINK
       </Button>
-
       {isModalOpen && <LinksModal />}
     </>
   );

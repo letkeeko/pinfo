@@ -18,11 +18,13 @@ const LinkField = (props: LinkField) => {
 
   const handleChange = useStore(({ handleChange }) => handleChange);
 
+  const invalidUrls = useStore(({ invalidUrls }) => invalidUrls);
+
   const debouncedHandleChange = useDebouncedCallback(
     (value: string, url: string) => {
       handleChange(value, url);
     },
-    300
+    600
   );
 
   const handleFocusBack = () => {
@@ -32,7 +34,7 @@ const LinkField = (props: LinkField) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper isInvalidUrl={invalidUrls.includes(value)}>
       <div className="platform">
         <span className="platform__label">{label}</span>
       </div>
@@ -59,8 +61,15 @@ const LinkField = (props: LinkField) => {
   );
 };
 
-const Wrapper = styled.div`
+type WrapperTypes = {
+  isInvalidUrl: boolean;
+};
+
+const Wrapper = styled.div<WrapperTypes>`
   background-color: ${COLOR.white};
+  border: ${({ isInvalidUrl }) =>
+    isInvalidUrl ? `1px solid ${COLOR.red}` : `1px solid ${COLOR.white}`};
+
   border-radius: 5px;
   display: flex;
   align-items: center;
