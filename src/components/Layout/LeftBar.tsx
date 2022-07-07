@@ -1,5 +1,28 @@
+import React from "react";
 import styled from "styled-components";
 import { COLOR } from "../variables";
+import Link from "next/link";
+import Logo from "../../svg/monogram";
+
+const LeftBar = () => {
+  const handleClick = () => {
+    alert("Show tool pop");
+  };
+
+  return (
+    <Wrapper>
+      <Link href="/admin">
+        <a className="logo">
+          <Logo />
+        </a>
+      </Link>
+
+      <button className="badge" onClick={handleClick}>
+        <span className="badge__label">Ke</span>
+      </button>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.aside`
   background-color: ${COLOR.white};
@@ -36,4 +59,4 @@ const Wrapper = styled.aside`
   }
 `;
 
-export default Wrapper;
+export default LeftBar;
