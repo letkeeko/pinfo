@@ -1,16 +1,15 @@
 import React from "react";
-import {
-  BsTriangleFill,
-  BsCircleFill,
-  BsFillRecordFill,
-  BsPlusLg,
-  BsPlusCircle,
-  BsPlus,
-  BsPlusCircleFill,
-} from "react-icons/bs";
+import { BsTriangleFill, BsCircleFill, BsPlusLg } from "react-icons/bs";
 import Wrapper from "./Button.style";
 
-const Button = (props: ButtonTypes) => {
+export type ButtonProps = {
+  children: React.ReactNode;
+  variant?: string;
+  align?: string;
+  onClick?: () => void;
+};
+
+const Button = (props: ButtonProps) => {
   const { children, variant, align, onClick } = props;
 
   if (variant === "solid") {
@@ -29,13 +28,6 @@ const Button = (props: ButtonTypes) => {
       <span className="label">{children}</span>
     </Wrapper>
   );
-};
-
-export type ButtonTypes = {
-  children: React.ReactNode;
-  variant?: string;
-  align?: string;
-  onClick?: () => void;
 };
 
 export default Button;

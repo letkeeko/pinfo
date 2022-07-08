@@ -4,9 +4,9 @@ import { COLOR } from "../../../variables";
 const Wrapper = styled.div`
   .card {
     background-color: ${COLOR.white};
+    box-shadow: 0 5px 12px -2px ${COLOR.getBlack(0.075)};
     border-radius: 8px;
     margin: 18px 0 0 0;
-    box-shadow: 0 5px 12px -2px rgba(60, 60, 60, 0.075);
 
     .option-list {
       display: flex;
@@ -17,31 +17,30 @@ const Wrapper = styled.div`
         margin: 0 18px;
 
         .content {
+          background-color: ${COLOR.getBlue(0.3)};
           height: 3vw;
           cursor: pointer;
-          background-color: ${COLOR.blue};
-          opacity: 0.25;
 
           &--round {
-            border-radius: 6px;
+            border-radius: 8px;
           }
 
           &--box {
           }
 
           &--circular {
-            border-radius: 30px;
+            border-radius: 100px;
           }
 
           &--active {
-            opacity: 1;
+            border: 3px solid ${COLOR.yellow};
           }
         }
       }
     }
 
     .settings {
-      border-top: 1px solid rgba(60, 60, 60, 0.125);
+      border-top: 1px solid ${COLOR.getBlack(0.125)};
       padding: 27px 36px 36px 36px;
       margin: 36px 0 0 0;
     }

@@ -1,9 +1,9 @@
 import create from "zustand";
 import platformOptions from "./platformOptions";
-import { platformTypes } from "./platformOptions";
 import isValidUrl from "../../../utils/is-valid-url";
+import { LinksStoreProps } from "./Links.types";
 
-const useStore = create<LinksProps>((set, get) => ({
+const useStore = create<LinksStoreProps>((set, get) => ({
   links: [],
 
   deletePrompt: [],
@@ -157,27 +157,5 @@ const useStore = create<LinksProps>((set, get) => ({
     console.log("save to database");
   },
 }));
-
-type LinkProps = {
-  label: string;
-  value: string;
-  url: string;
-};
-
-type LinksProps = {
-  links: LinkProps[];
-  deletePrompt: string[];
-  invalidUrls: string[];
-  isModalOpen: boolean;
-  searchablePlatforms: platformTypes;
-  handleModal: (value?: boolean) => void;
-  handleSearchPlatform: (value: string) => void;
-  handleAddPlatform: (value: LinkProps) => void;
-  handleChange: (value: string, url: string) => void;
-  handleDeleteLink: (value: any) => void;
-  handleDeletePrompt: (value: string) => void;
-  handleUrlValidation: (value: string, url: string) => void;
-  handleSaveToDb: (value?: LinkProps[]) => void;
-};
 
 export default useStore;

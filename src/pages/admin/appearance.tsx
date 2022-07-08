@@ -6,7 +6,7 @@ import Layout from "../../components/Layout/Layout";
 const AppearancePage: NextPage = () => {
   return (
     <>
-      <Seo title="Pinfo Appearance" description="TBD" />
+      <Seo title="Keeko (@keekopdf) • Appearance" description="TBD" />
       <Layout>
         <Appearance />
       </Layout>

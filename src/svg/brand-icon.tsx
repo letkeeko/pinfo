@@ -5,6 +5,7 @@ type BrandIconProps = {
   color?: string;
   className?: string;
 };
+
 const SvgComponent = (props: BrandIconProps) => (
   <svg
     className={props.className}

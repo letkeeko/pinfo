@@ -30,13 +30,13 @@ import {
 } from "react-icons/fa";
 import { SiMyspace } from "react-icons/si";
 
-export type platformTypes = {
+export type platformProps = {
   value: string;
   label: string;
   icon?: React.ReactElement;
 }[];
 
-const platformOptions: platformTypes = [
+const platformOptions: platformProps = [
   { value: "website", label: "Website", icon: <FaGlobe /> },
   { value: "store", label: "Store", icon: <FaStore /> },
   { value: "behance", label: "Behance", icon: <FaBehance /> },

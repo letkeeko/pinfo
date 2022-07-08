@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     display: block;
 
     &::placeholder {
-      color: rgba(60, 60, 60, 0.35);
+      color: ${COLOR.getBlack(0.35)};
     }
   }
 

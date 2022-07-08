@@ -42,6 +42,10 @@ const Links = () => {
         ))}
       <Spacer mb={30} />
 
+      {!links.length && (
+        <Text align="center">Display your links as icons on your Pinfo.</Text>
+      )}
+
       {!!invalidUrls.length && (
         <Text align="center">
           <span style={{ color: COLOR.red }}>

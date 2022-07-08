@@ -1,4 +1,5 @@
 import create from "zustand";
+import { PinsStoreProps } from "./Pins.types";
 
 const getEmptyPin = (id: number) => {
   return {
@@ -9,7 +10,7 @@ const getEmptyPin = (id: number) => {
   };
 };
 
-const useStore = create<PinsProps>((set, get) => ({
+const useStore = create<PinsStoreProps>((set, get) => ({
   pins: [getEmptyPin(1)],
 
   deletePrompt: [],
@@ -101,22 +102,5 @@ const useStore = create<PinsProps>((set, get) => ({
     }));
   },
 }));
-
-type pinsArrObj = {
-  id: number;
-  title: string;
-  description: string;
-}[];
-
-type PinsProps = {
-  pins: pinsArrObj;
-  deletePrompt: number[];
-  expandPins: number[];
-  handleChangePin: (pins: pinsArrObj) => void;
-  handleAddPin: () => void;
-  handleDeletePin: (id: number) => void;
-  handleDeletePrompt: (id: number) => void;
-  handleExpandPins: (id: number) => void;
-};
 
 export default useStore;

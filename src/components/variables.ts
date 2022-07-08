@@ -1,11 +1,13 @@
 export const COLOR = {
   black: "#3c3c3c", //rgb(60, 60, 60)
-  blue: "#0F6393", //rgb(15, 99,147)
+  blue: "#0F6393", //rgb(15, 99, 147)
   ice: "#EFF1F9",
   white: "#ffffff",
   yellow: "#FFBD11",
   green: "#4FB783",
   red: "#FF6B6B",
+  getBlue: (alpha: number) => `rgba(15, 99, 147, ${alpha})`,
+  getBlack: (alpha: number) => `rgba(60, 60, 60, ${alpha})`,
 };
 
 export const SCREEN = {

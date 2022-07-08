@@ -6,7 +6,7 @@ import Layout from "../../components/Layout/Layout";
 const PinsPage: NextPage = () => {
   return (
     <>
-      <Seo title="Pinfo Pins" description="TBD" />
+      <Seo title="Keeko (@keekopdf) • Pins" description="TBD" />
       <Layout>
         <Pins />
       </Layout>

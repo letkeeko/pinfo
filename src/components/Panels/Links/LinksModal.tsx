@@ -5,7 +5,7 @@ import { COLOR } from "../../variables";
 import { TbSearch } from "react-icons/tb";
 import useStore from "./Links.store";
 import { CgClose } from "react-icons/cg";
-import { CgRadioChecked } from "react-icons/cg";
+import { GiCheckMark } from "react-icons/gi";
 import { useDebouncedCallback } from "use-debounce";
 
 const LinksModal = () => {
@@ -89,7 +89,7 @@ const LinksModal = () => {
                 disabled={isActive(option.value)}
               >
                 {isActive(option.value) && (
-                  <CgRadioChecked className="active-indicator" />
+                  <GiCheckMark className="active-indicator" />
                 )}
                 {option.icon} <span> {option.label}</span>
               </button>
@@ -101,7 +101,7 @@ const LinksModal = () => {
 };
 
 const Wrapper = styled.div`
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: ${COLOR.getBlack(0.55)};
   position: fixed;
   top: 0;
   left: 0;
@@ -115,7 +115,6 @@ const Wrapper = styled.div`
   .card {
     background-color: ${COLOR.white};
     border-radius: 8px;
-    box-shadow: 0 5px 12px -2px rgba(60, 60, 60, 0.075);
     max-width: 600px;
     width: 100%;
     height: calc(100% - 25vh);
@@ -170,9 +169,9 @@ const Wrapper = styled.div`
       padding: 36px 18px 18px 18px;
 
       &__each {
+        border: 1px solid ${COLOR.getBlack(0.125)};
         color: ${COLOR.blue};
         background-color: transparent;
-        border: 1px solid rgba(60, 60, 60, 0.125);
         width: calc(50% - 36px);
         margin: 0 18px 36px 18px;
         display: flex;
@@ -182,7 +181,6 @@ const Wrapper = styled.div`
         cursor: pointer;
         line-height: 30px;
         position: relative;
-        /* opacity: 0.5; */
 
         svg {
           font-size: 1.2rem;
@@ -200,8 +198,8 @@ const Wrapper = styled.div`
           right: 0;
           font-size: 1.2rem;
         }
+
         &--active {
-          opacity: 1;
           pointer-events: none;
         }
       }

@@ -12,7 +12,7 @@ const Wrapper = styled.div`
       position: absolute;
       top: 30px;
       left: 13px;
-      color: rgba(60, 60, 60, 0.35);
+      color: ${COLOR.getBlack(0.35)};
       pointer-events: none;
     }
 
@@ -34,6 +34,7 @@ const Wrapper = styled.div`
       margin: 0 0 0 5px;
       line-height: 1.5;
       max-width: 270px;
+
       a {
         color: ${COLOR.blue};
         text-decoration: underline;

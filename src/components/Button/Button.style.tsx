@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { COLOR, SCREEN } from "../variables";
-import { ButtonTypes } from "./Button";
+import { ButtonProps } from "./Button";
 
-const Wrapper = styled.button<ButtonTypes>`
+const Wrapper = styled.button<ButtonProps>`
   background-color: ${({ variant }) =>
     variant === "solid" ? COLOR.blue : "transparent"};
   display: ${({ align }) => (align === "center" ? "block" : "inline-block")};

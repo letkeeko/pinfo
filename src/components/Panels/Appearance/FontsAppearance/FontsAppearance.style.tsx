@@ -4,9 +4,9 @@ import { COLOR } from "../../../variables";
 const Wrapper = styled.div`
   .card {
     background-color: ${COLOR.white};
+    box-shadow: 0 5px 12px -2px ${COLOR.getBlack(0.075)};
     border-radius: 8px;
     margin: 18px 0 0 0;
-    box-shadow: 0 5px 12px -2px rgba(60, 60, 60, 0.075);
 
     .option-list {
       display: flex;
@@ -16,11 +16,10 @@ const Wrapper = styled.div`
       &__each {
         width: calc(20% - 36px);
         margin: 0 18px 36px 18px;
-        opacity: 0.25;
         cursor: pointer;
 
         .content {
-          border: 1px solid rgba(60, 60, 60, 0.125);
+          border: 1px solid ${COLOR.getBlack(0.125)};
           height: 7vw;
           display: flex;
           align-items: center;
@@ -42,13 +41,15 @@ const Wrapper = styled.div`
         }
 
         &--active {
-          opacity: 1;
+          .content {
+            border: 3px solid ${COLOR.yellow};
+          }
         }
       }
     }
 
     .settings {
-      border-top: 1px solid rgba(60, 60, 60, 0.125);
+      border-top: 1px solid ${COLOR.getBlack(0.125)};
       padding: 27px 36px 36px 36px;
       margin: 36px 0 0 0;
     }

@@ -2,7 +2,12 @@
 import React from "react";
 import Wrapper from "./DeletePrompt.style";
 
-const DeletePrompt = (props: DeletePrompTypes) => {
+type DeletePrompProps = {
+  triggerDelete: () => void;
+  triggerCancel: () => void;
+};
+
+const DeletePrompt = (props: DeletePrompProps) => {
   const { triggerDelete, triggerCancel } = props;
   return (
     <Wrapper>
@@ -14,11 +19,6 @@ const DeletePrompt = (props: DeletePrompTypes) => {
       </button>
     </Wrapper>
   );
-};
-
-type DeletePrompTypes = {
-  triggerDelete: () => void;
-  triggerCancel: () => void;
 };
 
 export default DeletePrompt;

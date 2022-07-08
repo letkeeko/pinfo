@@ -1,5 +1,6 @@
 import create from "zustand";
 import { COLOR } from "../../variables";
+import { AppearanceStoreProps } from "./Appearance.types";
 
 const defaultBackground = {
   image: null,
@@ -21,7 +22,7 @@ const defaultFont = {
   font_colour: COLOR.blue,
 };
 
-const useStore = create<AppearanceProps>((set, get) => ({
+const useStore = create<AppearanceStoreProps>((set, get) => ({
   background: defaultBackground,
   button: defaultButton,
   font: defaultFont,
@@ -124,42 +125,5 @@ const useStore = create<AppearanceProps>((set, get) => ({
     }));
   },
 }));
-
-type backgroundProps = {
-  image: string | null;
-  grainy: string;
-  gradient1: string;
-  gradient2: string;
-  flat: string;
-  variant: string;
-  [key: string]: any;
-};
-
-type buttonProps = {
-  variant: string;
-  button_colour: string;
-  button_font_colour: string;
-  [key: string]: any;
-};
-
-type fontProps = {
-  variant: string;
-  font_colour: string;
-  [key: string]: any;
-};
-
-type AppearanceProps = {
-  background: backgroundProps;
-  button: buttonProps;
-  font: fontProps;
-  activeColorPickers: string[];
-  handleBackgroundChange: (key: string, value: string) => void;
-  handleButtonChange: (key: string, value: string) => void;
-  handleFontChange: (key: string, value: string) => void;
-  handleActiveBackground: (key: string) => void;
-  handleActiveButton: (key: string) => void;
-  handleActiveFont: (key: string) => void;
-  handleActiveColorPickers: (key: string) => void;
-};
 
 export default useStore;
