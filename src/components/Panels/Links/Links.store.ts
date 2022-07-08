@@ -1,13 +1,16 @@
 import create from "zustand";
 import platformOptions from "./platformOptions";
-import { platformTypes } from "./platformOptions";
+import isValidUrl from "../../../utils/is-valid-url";
+import { LinksStoreProps } from "./Links.types";
 
-const useStore = create<LinksProps>((set, get) => ({
+const useStore = create<LinksStoreProps>((set, get) => ({
   links: [],
 
-  isModalOpen: false,
-
   deletePrompt: [],
+
+  invalidUrls: [],
+
+  isModalOpen: false,
 
   searchablePlatforms: platformOptions,
 
@@ -86,6 +89,7 @@ const useStore = create<LinksProps>((set, get) => ({
 
   handleDeleteLink: (value) => {
     const links = get().links;
+    const invalidUrls = get().invalidUrls;
     const deletePrompt = get().deletePrompt;
     // filter out based on selected id
     const filteredLinks = links.filter((link) => link.value !== value);
@@ -95,41 +99,63 @@ const useStore = create<LinksProps>((set, get) => ({
       (linkId) => linkId !== value
     );
 
+    const filteredInvalidUrls = invalidUrls.filter(
+      (currentPlatform) => currentPlatform !== value
+    );
+
     set((state) => ({
       ...state,
       links: filteredLinks,
       deletePrompt: filteredDeletePrompt,
+      invalidUrls: filteredInvalidUrls,
     }));
   },
 
-  handleChange: (value, url) => {
+  handleChange: (platform, url) => {
     const links = get().links;
+    const handleUrlValidation = get().handleUrlValidation;
 
-    const currentIndex = links.findIndex((link) => link.value === value);
+    const currentIndex = links.findIndex((link) => link.value === platform);
 
     links[currentIndex].url = url;
 
+    handleUrlValidation(platform, url);
+
     set((state) => ({ ...state, links: [...links] }));
   },
+
+  handleUrlValidation: (platform, url) => {
+    const invalidUrls = get().invalidUrls;
+    const links = get().links;
+    const handleSaveToDb = get().handleSaveToDb;
+
+    const isAllValidUrl = links.every((link) => isValidUrl(link.url));
+
+    if (isValidUrl(url)) {
+      const filteredInvalidUrls = invalidUrls.filter(
+        (currentPlatform) => currentPlatform !== platform
+      );
+      set((state) => ({
+        ...state,
+        invalidUrls: filteredInvalidUrls,
+      }));
+    }
+
+    if (!isValidUrl(url) && !invalidUrls.includes(platform)) {
+      set((state) => ({
+        ...state,
+        invalidUrls: [...invalidUrls, platform],
+      }));
+    }
+
+    if (isAllValidUrl) {
+      handleSaveToDb();
+    }
+  },
+
+  handleSaveToDb: () => {
+    console.log("save to database");
+  },
 }));
-
-type LinkProps = {
-  label: string;
-  value: string;
-  url: string;
-};
-
-type LinksProps = {
-  links: LinkProps[];
-  deletePrompt: string[];
-  isModalOpen: boolean;
-  searchablePlatforms: platformTypes;
-  handleModal: (value?: boolean) => void;
-  handleSearchPlatform: (value: string) => void;
-  handleAddPlatform: (value: LinkProps) => void;
-  handleChange: (value: string, url: string) => void;
-  handleDeleteLink: (value: string) => void;
-  handleDeletePrompt: (value: string) => void;
-};
 
 export default useStore;

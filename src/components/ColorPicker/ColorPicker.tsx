@@ -2,7 +2,15 @@ import React from "react";
 import Wrapper from "./ColorPicker.style";
 import { HexColorPicker, HexColorInput } from "react-colorful";
 
-const ColorPicker = (props: ColorPickerTypes) => {
+type ColorPickerProps = {
+  handleChange: (key: string, value: string) => void;
+  handleActiveColorPickers: (value: string) => void;
+  activeColorPickers: string[];
+  color: string;
+  variant: string;
+};
+
+const ColorPicker = (props: ColorPickerProps) => {
   const {
     color,
     variant,
@@ -49,14 +57,6 @@ const ColorPicker = (props: ColorPickerTypes) => {
       )}
     </Wrapper>
   );
-};
-
-type ColorPickerTypes = {
-  handleChange: (key: string, value: string) => void;
-  handleActiveColorPickers: (value: string) => void;
-  activeColorPickers: string[];
-  color: string;
-  variant: string;
 };
 
 export default ColorPicker;

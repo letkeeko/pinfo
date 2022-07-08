@@ -1,6 +1,11 @@
 import React from "react";
 import { H1, H2 } from "./Heading.style";
 
+type HeadingProps = {
+  children: React.ReactNode;
+  as: string;
+};
+
 const Heading = (props: HeadingProps) => {
   const { as, children } = props;
 
@@ -9,11 +14,6 @@ const Heading = (props: HeadingProps) => {
   if (as === "h2") return <H2>{children}</H2>;
 
   return null;
-};
-
-type HeadingProps = {
-  children: React.ReactNode;
-  as: string;
 };
 
 export default Heading;

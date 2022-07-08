@@ -7,17 +7,17 @@ type WrapperProps = {
 
 const Wrapper = styled.div<WrapperProps>`
   background-color: ${COLOR.white};
+  box-shadow: 0 5px 12px -2px ${COLOR.getBlack(0.075)};
   border-radius: 8px;
   position: relative;
   margin: 0 auto;
-  box-shadow: 0 5px 12px -2px rgba(60, 60, 60, 0.075);
   z-index: 4;
 
   .title-wrap {
+    border-bottom: 1px solid ${COLOR.getBlack(0.125)};
     display: flex;
     align-items: center;
     padding: 15px 17px;
-    border-bottom: 1px solid rgba(60, 60, 60, 0.125);
 
     &__icon {
       display: block;
@@ -35,7 +35,7 @@ const Wrapper = styled.div<WrapperProps>`
       color: ${COLOR.black};
 
       &::placeholder {
-        color: rgba(60, 60, 60, 0.35);
+        color: ${COLOR.getBlack(0.35)};
         font-weight: 300;
       }
     }
@@ -46,11 +46,11 @@ const Wrapper = styled.div<WrapperProps>`
     overflow: ${({ isExpand }) => (isExpand ? "hidden" : "visible")};
 
     .ql-toolbar {
-      border-bottom: 1px solid rgba(60, 60, 60, 0.125) !important;
+      border-bottom: 1px solid ${COLOR.getBlack(0.125)} !important;
       padding: 0;
 
       .ql-formats {
-        border-right: 1px solid rgba(60, 60, 60, 0.125);
+        border-right: 1px solid ${COLOR.getBlack(0.125)};
         padding: 4px 8px;
         margin: 0;
 
@@ -62,6 +62,7 @@ const Wrapper = styled.div<WrapperProps>`
           position: relative;
           color: ${COLOR.black};
           font-size: 0.8rem;
+
           &::before {
             content: "";
             width: 100%;
@@ -76,6 +77,7 @@ const Wrapper = styled.div<WrapperProps>`
             top: 0.5px;
             width: 28px;
           }
+
           .ql-picker-label {
             svg {
             }
@@ -115,7 +117,7 @@ const Wrapper = styled.div<WrapperProps>`
         }
 
         .ql-active {
-          background-color: rgba(15, 99, 147, 0.1);
+          background-color: ${COLOR.getBlue(0.1)};
           color: ${COLOR.black};
         }
 
@@ -246,10 +248,10 @@ const Wrapper = styled.div<WrapperProps>`
         }
 
         &::before {
+          color: ${COLOR.getBlack(0.35)};
           font-size: 0.95rem;
           font-style: normal;
           font-weight: 300;
-          color: rgba(60, 60, 60, 0.35);
           left: 18px;
         }
       }
@@ -308,10 +310,6 @@ const Wrapper = styled.div<WrapperProps>`
       margin: 0 0 0 18px;
       padding: 0;
       position: relative;
-
-      &:focus {
-        /* background-color: rgba(15, 99, 147, 0.075); */
-      }
 
       &--lg {
         font-size: 1.3rem;

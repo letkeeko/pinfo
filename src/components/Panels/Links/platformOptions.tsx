@@ -2,7 +2,6 @@ import React from "react";
 import {
   FaGlobe,
   FaStore,
-  FaRegEnvelope,
   FaBehance,
   FaDiscord,
   FaDribbble,
@@ -31,16 +30,15 @@ import {
 } from "react-icons/fa";
 import { SiMyspace } from "react-icons/si";
 
-export type platformTypes = {
+export type platformProps = {
   value: string;
   label: string;
   icon?: React.ReactElement;
 }[];
 
-const platformOptions: platformTypes = [
+const platformOptions: platformProps = [
   { value: "website", label: "Website", icon: <FaGlobe /> },
   { value: "store", label: "Store", icon: <FaStore /> },
-  { value: "email", label: "Email", icon: <FaRegEnvelope /> },
   { value: "behance", label: "Behance", icon: <FaBehance /> },
   { value: "discord", label: "Discord", icon: <FaDiscord /> },
   { value: "dribbble", label: "Dribbble", icon: <FaDribbble /> },

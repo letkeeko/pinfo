@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     display: flex;
 
     &__preview-box {
-      border: 1px solid rgba(60, 60, 60, 0.125);
+      border: 1px solid ${COLOR.getBlack(0.125)};
       width: 48px;
       height: 48px;
       margin: 0 14px 0 0;
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
     input {
       color: ${COLOR.black};
       border-radius: 6px;
-      border: 1px solid rgba(60, 60, 60, 0.25);
+      border: 1px solid ${COLOR.getBlack(0.25)};
       padding: 0 10px;
     }
   }

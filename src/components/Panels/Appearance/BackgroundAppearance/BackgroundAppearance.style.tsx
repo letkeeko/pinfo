@@ -4,9 +4,9 @@ import { COLOR } from "../../../variables";
 const Wrapper = styled.div`
   .card {
     background-color: ${COLOR.white};
+    box-shadow: 0 5px 12px -2px ${COLOR.getBlack(0.075)};
     border-radius: 8px;
     margin: 18px 0 0 0;
-    box-shadow: 0 5px 12px -2px rgba(60, 60, 60, 0.075);
 
     .option-list {
       display: flex;
@@ -15,28 +15,28 @@ const Wrapper = styled.div`
       &__each {
         width: 25%;
         margin: 0 18px;
+        position: relative;
 
         .content {
           height: 8vw;
           border-radius: 6px;
           margin: 0 0 9px 0;
           cursor: pointer;
-          opacity: 0.25;
 
           &--flat {
-            background-color: ${COLOR.blue};
+            background-color: ${COLOR.getBlue(0.3)};
           }
 
           &--gradient {
             background-image: linear-gradient(
               to top,
-              ${COLOR.blue},
-              ${COLOR.white}
+              ${COLOR.white},
+              ${COLOR.getBlue(0.3)}
             );
           }
 
           &--grainy {
-            background-color: ${COLOR.blue};
+            background-color: ${COLOR.getBlue(0.3)};
             background-image: url("/grainy-bg.png");
           }
 
@@ -47,22 +47,22 @@ const Wrapper = styled.div`
             justify-content: center;
 
             svg {
-              font-size: 3rem;
-              background-color: ${COLOR.blue};
+              background-color: ${COLOR.getBlue(0.3)};
               color: ${COLOR.white};
-              border-radius: 8px;
+              font-size: 3rem;
+              border-radius: 9px;
             }
           }
 
           &--active {
-            opacity: 1;
+            border: 3px solid ${COLOR.yellow};
           }
         }
       }
     }
 
     .settings {
-      border-top: 1px solid rgba(60, 60, 60, 0.125);
+      border-top: 1px solid ${COLOR.getBlack(0.125)};
       padding: 27px 36px 36px 36px;
       margin: 36px 0 0 0;
     }

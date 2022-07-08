@@ -8,6 +8,21 @@ import DeletePrompt from "../DeletePrompt/DeletePrompt";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
+type TextEditorProps = {
+  pinId: number;
+  handleDeletePin: (id: number) => void;
+  handleDeletePrompt: (id: number) => void;
+  handleExpandPins: (id: number) => void;
+  isDeletePrompted: boolean;
+  expandPins: number[];
+  setPins: ([]) => void;
+  pins: {
+    id: number;
+    title: string;
+    description: string;
+  }[];
+};
+
 const TextEditor = (props: TextEditorProps) => {
   const {
     pinId,
@@ -104,21 +119,6 @@ const TextEditor = (props: TextEditorProps) => {
       </div>
     </Wrapper>
   );
-};
-
-type TextEditorProps = {
-  pinId: number;
-  handleDeletePin: (id: number) => void;
-  handleDeletePrompt: (id: number) => void;
-  handleExpandPins: (id: number) => void;
-  isDeletePrompted: boolean;
-  expandPins: number[];
-  setPins: ([]) => void;
-  pins: {
-    id: number;
-    title: string;
-    description: string;
-  }[];
 };
 
 export default TextEditor;

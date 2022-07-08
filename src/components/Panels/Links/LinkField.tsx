@@ -6,7 +6,20 @@ import { useDebouncedCallback } from "use-debounce";
 import { TbTrash } from "react-icons/tb";
 import DeletePrompt from "../../DeletePrompt/DeletePrompt";
 
-const LinkField = (props: LinkField) => {
+type LinkFieldProps = {
+  value: string;
+  label: string;
+  url: string;
+  isDeletePrompted: boolean;
+  handleDeletePrompt: (value: string) => void;
+  handleDeleteLink: (value: string) => void;
+};
+
+type WrapperProps = {
+  isInvalidUrl: boolean;
+};
+
+const LinkField = (props: LinkFieldProps) => {
   const {
     value,
     label,
@@ -18,11 +31,13 @@ const LinkField = (props: LinkField) => {
 
   const handleChange = useStore(({ handleChange }) => handleChange);
 
+  const invalidUrls = useStore(({ invalidUrls }) => invalidUrls);
+
   const debouncedHandleChange = useDebouncedCallback(
     (value: string, url: string) => {
       handleChange(value, url);
     },
-    300
+    600
   );
 
   const handleFocusBack = () => {
@@ -32,7 +47,7 @@ const LinkField = (props: LinkField) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper isInvalidUrl={invalidUrls.includes(value)}>
       <div className="platform">
         <span className="platform__label">{label}</span>
       </div>
@@ -59,16 +74,19 @@ const LinkField = (props: LinkField) => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<WrapperProps>`
   background-color: ${COLOR.white};
+  border: ${({ isInvalidUrl }) =>
+    isInvalidUrl ? `1px solid ${COLOR.red}` : `1px solid ${COLOR.white}`};
+
   border-radius: 5px;
   display: flex;
   align-items: center;
-  box-shadow: 0 5px 12px -2px rgba(60, 60, 60, 0.075);
+  box-shadow: 0 5px 12px -2px ${COLOR.getBlack(0.075)};
   position: relative;
 
   .platform {
-    border-right: 1px solid rgba(60, 60, 60, 0.125);
+    border-right: 1px solid ${COLOR.getBlack(0.125)};
     padding: 6px 20px;
     line-height: 30px;
     min-width: 125px;
@@ -85,6 +103,7 @@ const Wrapper = styled.div`
 
   .input {
     background-color: ${COLOR.white};
+    color: ${COLOR.getBlack(0.5)};
     border: 0;
     border-radius: 5px;
     padding: 10px 12px 10px 18px;
@@ -93,10 +112,10 @@ const Wrapper = styled.div`
     width: 100%;
     font-size: 16px;
     font-weight: 300;
-    color: rgba(60, 60, 60, 0.5);
     outline: none;
+
     &::placeholder {
-      color: rgba(60, 60, 60, 0.35);
+      color: ${COLOR.getBlack(0.35)};
     }
 
     &:focus {
@@ -115,14 +134,5 @@ const Wrapper = styled.div`
     padding: 0;
   }
 `;
-
-type LinkField = {
-  value: string;
-  label: string;
-  url: string;
-  isDeletePrompted: boolean;
-  handleDeletePrompt: (value: string) => void;
-  handleDeleteLink: (value: string) => void;
-};
 
 export default LinkField;

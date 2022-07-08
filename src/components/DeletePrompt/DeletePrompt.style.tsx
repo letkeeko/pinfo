@@ -2,21 +2,19 @@ import styled from "styled-components";
 import { COLOR } from "../variables";
 
 const Wrapper = styled.div`
+  background-color: ${COLOR.white};
+  border: 1px solid ${COLOR.getBlue(0.25)};
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 25px;
   right: 0;
-  background-color: ${COLOR.white};
-  /* box-shadow: 0 5px 12px -2px rgba(60, 60, 60, 0.1);
-  box-shadow: 5px 5px 5px 5px rgba(60, 60, 60, 0.075); */
-  border: 1px solid rgba(15, 99, 147, 0.25);
-
   width: 156px;
-  bottom: 0;
+  bottom: -1px;
+  right: -1px;
   border-radius: 6px;
-  max-height: 50px;
+  max-height: 52px;
 
   .prompt-btn {
     color: ${COLOR.blue};

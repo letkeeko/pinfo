@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Wrapper from "./Pins.style";
+import React from "react";
 import TextEditor from "../../TextEditor/TextEditor";
 import Button from "../../Button/Button";
 import Spacer from "../../Spacer/Spacer";
@@ -27,8 +26,8 @@ const Pins = () => {
   const handleExpandPins = useStore(({ handleExpandPins }) => handleExpandPins);
 
   return (
-    <Wrapper>
-      {pins.map((pin, index) => (
+    <>
+      {pins.map((pin) => (
         <React.Fragment key={pin.id}>
           <TextEditor
             pinId={pin.id}
@@ -46,7 +45,7 @@ const Pins = () => {
       <Button variant="solid" align="center" onClick={handleAddPin}>
         ADD NEW PINFO
       </Button>
-    </Wrapper>
+    </>
   );
 };
 

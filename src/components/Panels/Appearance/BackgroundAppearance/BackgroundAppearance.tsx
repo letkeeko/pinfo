@@ -45,6 +45,7 @@ const BackgroundAppearance = () => {
               className={getActiveClassName("flat")}
               onClick={() => handleActiveBackground("flat")}
             ></div>
+
             <Text align="center">Flat</Text>
           </li>
           <li className="option-list__each">
@@ -52,6 +53,7 @@ const BackgroundAppearance = () => {
               className={getActiveClassName("gradient")}
               onClick={() => handleActiveBackground("gradient")}
             ></div>
+
             <Text align="center">Gradient</Text>
           </li>
           <li className="option-list__each">
@@ -59,6 +61,7 @@ const BackgroundAppearance = () => {
               className={getActiveClassName("grainy")}
               onClick={() => handleActiveBackground("grainy")}
             ></div>
+
             <Text align="center">Grainy</Text>
           </li>
           <li className="option-list__each">
@@ -68,6 +71,7 @@ const BackgroundAppearance = () => {
             >
               <TbPhoto />
             </div>
+
             <Text align="center">Image</Text>
           </li>
         </ul>
