@@ -1,25 +1,19 @@
 import React from "react";
-import Wrapper from "./Spacer.style";
+import SpacerWrapper from "./style";
 
 export type SpacerProps = {
-  mt?: number;
-  mr?: number;
-  mb?: number;
-  ml?: number;
+  length: number;
 };
 
 const Spacer = (props: SpacerProps) => {
-  const { mt, mr, mb, ml } = props;
+  const { length } = props;
 
   return (
-    <Wrapper
-      mt={mt}
-      mr={mr}
-      mb={mb}
-      ml={ml}
+    <SpacerWrapper
+      length={length}
       aria-hidden="true"
       role="presentation"
-    ></Wrapper>
+    ></SpacerWrapper>
   );
 };
 

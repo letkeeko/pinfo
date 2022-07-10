@@ -1,17 +1,21 @@
 import React from "react";
-import BackgroundAppearance from "./BackgroundAppearance/BackgroundAppearance";
-import ButtonsAppearance from "./ButtonsAppearance/ButtonsAppearance";
-import FontAppearance from "./FontsAppearance/FontsAppearance";
+import Background from "./Background";
+import Buttons from "./Buttons";
+import Fonts from "./Fonts";
 import Spacer from "../../Spacer/Spacer";
 
 const Appearance = () => {
   return (
     <>
-      <BackgroundAppearance />
-      <Spacer mb={75} />
-      <ButtonsAppearance />
-      <Spacer mb={75} />
-      <FontAppearance />
+      <Background />
+
+      <Spacer length={75} />
+
+      <Buttons />
+
+      <Spacer length={75} />
+
+      <Fonts />
     </>
   );
 };

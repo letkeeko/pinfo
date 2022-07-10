@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import Wrapper from "./style.NavBar";
+import NavBarWrapper from "./style";
 import Logo from "../../../svg/logo";
 
 const Navbar = () => {
   return (
-    <Wrapper>
+    <NavBarWrapper>
       <Link href="/">
         <a className="logo">
           <Logo />
@@ -24,7 +24,7 @@ const Navbar = () => {
           <a className="link">Login</a>
         </Link>
       </div>
-    </Wrapper>
+    </NavBarWrapper>
   );
 };
 

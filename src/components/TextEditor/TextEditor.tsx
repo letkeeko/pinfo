@@ -1,6 +1,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import Wrapper from "./TextEditor.style";
+import TextEditorWrapper from "./style";
 import "react-quill/dist/quill.snow.css";
 import BrandIcon from "../../svg/brand-icon";
 import { TbTrash, TbChevronDown, TbChevronUp } from "react-icons/tb";
@@ -75,19 +75,19 @@ const TextEditor = (props: TextEditorProps) => {
   };
 
   return (
-    <Wrapper isExpand={expandPins.includes(pinId)}>
+    <TextEditorWrapper isExpand={expandPins.includes(pinId)}>
       <div className="title-wrap">
         <BrandIcon className="title-wrap__icon" />
         <input
           className="title-wrap__input"
           type="text"
-          placeholder="Question, heading, label, etc."
+          placeholder="Question / Title"
           onChange={handleTitleChange}
           defaultValue={pins[index].title}
         />
       </div>
       <ReactQuill
-        placeholder="Answer, description, etc."
+        placeholder="Answer / Description"
         modules={toolbarOptions}
         onChange={handleDescriptionChange}
         onFocus={handleFocusBack}
@@ -117,7 +117,7 @@ const TextEditor = (props: TextEditorProps) => {
           />
         )}
       </div>
-    </Wrapper>
+    </TextEditorWrapper>
   );
 };
 

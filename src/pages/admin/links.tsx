@@ -1,15 +1,15 @@
 import type { NextPage } from "next";
-import Seo from "../../components/Seo";
+import Head from "../../components/Head";
 import Links from "../../components/Panels/Links/Links";
-import Layout from "../../components/Layout/Layout";
+import AdminLayout from "../../components/AdminLayout/AdminLayout";
 
 const LinksPage: NextPage = () => {
   return (
     <>
-      <Seo title="Keeko (@keekopdf) • Links" description="TBD" />
-      <Layout>
+      <Head title="Keeko (@keekopdf) • Links" description="TBD" />
+      <AdminLayout>
         <Links />
-      </Layout>
+      </AdminLayout>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "./ColorPicker.style";
+import ColorPickerWrapper from "./style";
 import { HexColorPicker, HexColorInput } from "react-colorful";
 
 type ColorPickerProps = {
@@ -20,7 +20,7 @@ const ColorPicker = (props: ColorPickerProps) => {
   } = props;
 
   return (
-    <Wrapper>
+    <ColorPickerWrapper>
       {activeColorPickers.includes(variant) && (
         <div className="color-picker-wrap">
           <HexColorPicker
@@ -55,7 +55,7 @@ const ColorPicker = (props: ColorPickerProps) => {
           {/* this close the current color picker when click anywhere */}
         </div>
       )}
-    </Wrapper>
+    </ColorPickerWrapper>
   );
 };
 

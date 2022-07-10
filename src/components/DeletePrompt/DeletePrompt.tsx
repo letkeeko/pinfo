@@ -1,6 +1,6 @@
 // parent container must have css position:relative
 import React from "react";
-import Wrapper from "./DeletePrompt.style";
+import DeletePromptWrapper from "./style";
 
 type DeletePrompProps = {
   triggerDelete: () => void;
@@ -10,14 +10,14 @@ type DeletePrompProps = {
 const DeletePrompt = (props: DeletePrompProps) => {
   const { triggerDelete, triggerCancel } = props;
   return (
-    <Wrapper>
+    <DeletePromptWrapper>
       <button className="prompt-btn prompt-btn--danger" onClick={triggerDelete}>
         Delete
       </button>
       <button className="prompt-btn" onClick={triggerCancel}>
         Cancel
       </button>
-    </Wrapper>
+    </DeletePromptWrapper>
   );
 };
 

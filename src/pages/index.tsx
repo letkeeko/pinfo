@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { COLOR } from "../components/variables";
 import styled from "styled-components";
-import Seo from "../components/Seo";
+import Head from "../components/Head";
 import NavBar from "../components/FrontPage/NavBar/NavBar";
 import InputBar from "../components/FrontPage/InputBar/InputBar";
 import Heading from "../components/Heading/Heading";
@@ -11,13 +11,13 @@ import Spacer from "../components/Spacer/Spacer";
 const Home: NextPage = () => {
   return (
     <Wrapper>
-      <Seo title="Pinfo" description="TBD" />
+      <Head title="Pinfo" description="TBD" />
 
       <div className="flex-row">
         <div className="col col--white">
           <NavBar />
 
-          <Spacer mt={48} />
+          <Spacer length={48} />
 
           <Heading as="h1">
             Pin your <strong>FAQ&apos;s</strong>
@@ -25,13 +25,13 @@ const Home: NextPage = () => {
             or other information
           </Heading>
 
-          <Spacer mb={8} />
+          <Spacer length={8} />
 
           <Text>A perfect way to share everything you have going on.</Text>
 
-          <Spacer mt={42} />
+          <Spacer length={42} />
           <InputBar />
-          <Spacer mb={14} />
+          <Spacer length={14} />
 
           <Text>It&apos;s free, create your own page in minutes.</Text>
         </div>

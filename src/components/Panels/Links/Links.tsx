@@ -1,28 +1,27 @@
 import React from "react";
 import Button from "../../Button/Button";
 import Spacer from "../../Spacer/Spacer";
-import useStore from "./Links.store";
-import LinksModal from "./LinksModal";
+import useLinksStore from "../../../stores/useLinksStore";
 import LinkField from "./LinkField";
 import Text from "../../Text/Text";
 import { COLOR } from "../../variables";
 
 const Links = () => {
-  const links = useStore(({ links }) => links);
-  const handleModal = useStore(({ handleModal }) => handleModal);
-
-  const isModalOpen = useStore(({ isModalOpen }) => isModalOpen);
+  const links = useLinksStore(({ links }) => links);
+  const handleModal = useLinksStore(({ handleModal }) => handleModal);
 
   // delete prompt confirmation tracker
-  const deletePrompt = useStore(({ deletePrompt }) => deletePrompt);
+  const deletePrompt = useLinksStore(({ deletePrompt }) => deletePrompt);
 
-  const handleDeletePrompt = useStore(
+  const handleDeletePrompt = useLinksStore(
     ({ handleDeletePrompt }) => handleDeletePrompt
   );
 
-  const handleDeleteLink = useStore(({ handleDeleteLink }) => handleDeleteLink);
+  const handleDeleteLink = useLinksStore(
+    ({ handleDeleteLink }) => handleDeleteLink
+  );
 
-  const invalidUrls = useStore(({ invalidUrls }) => invalidUrls);
+  const invalidUrls = useLinksStore(({ invalidUrls }) => invalidUrls);
 
   return (
     <>
@@ -37,10 +36,11 @@ const Links = () => {
               handleDeletePrompt={handleDeletePrompt}
               handleDeleteLink={handleDeleteLink}
             />
-            <Spacer mb={30} />
+            <Spacer length={30} />
           </React.Fragment>
         ))}
-      <Spacer mb={30} />
+
+      <Spacer length={30} />
 
       {!links.length && (
         <Text align="center">Display your links as icons on your Pinfo.</Text>
@@ -49,16 +49,16 @@ const Links = () => {
       {!!invalidUrls.length && (
         <Text align="center">
           <span style={{ color: COLOR.red }}>
-            Please put valid URL and starts with https://
+            Please enter a valid URL that starts with https://
           </span>
         </Text>
       )}
 
-      <Spacer mb={60} />
-      <Button variant="solid" align="center" onClick={handleModal}>
+      <Spacer length={60} />
+
+      <Button align="center" onClick={handleModal}>
         ADD NEW LINK
       </Button>
-      {isModalOpen && <LinksModal />}
     </>
   );
 };

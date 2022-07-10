@@ -1,15 +1,20 @@
 import React from "react";
-import Wrapper from "./style.Text";
+import TextWrapper from "./style";
 
 export type TextProps = {
   children: React.ReactNode;
   align?: string;
+  weight?: number;
 };
 
 const Text = (props: TextProps) => {
-  const { children, align } = props;
+  const { children, align, weight } = props;
 
-  return <Wrapper align={align || "left"}>{children}</Wrapper>;
+  return (
+    <TextWrapper align={align || "left"} weight={weight || 300}>
+      {children}
+    </TextWrapper>
+  );
 };
 
 export default Text;
