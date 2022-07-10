@@ -2,28 +2,34 @@ import React from "react";
 import TextEditor from "../../TextEditor/TextEditor";
 import Button from "../../Button/Button";
 import Spacer from "../../Spacer/Spacer";
-import useStore from "./Pins.store";
+import usePinsStore from "../../../stores/usePinsStore";
 
 const Pins = () => {
-  const pins = useStore(({ pins }) => pins);
+  const pins = usePinsStore(({ pins }) => pins);
 
-  const handleChangePin = useStore(({ handleChangePin }) => handleChangePin);
+  const handleChangePin = usePinsStore(
+    ({ handleChangePin }) => handleChangePin
+  );
 
   // delete prompt confirmation tracker
-  const deletePrompt = useStore(({ deletePrompt }) => deletePrompt);
+  const deletePrompt = usePinsStore(({ deletePrompt }) => deletePrompt);
 
   // expanded pin tracker
-  const expandPins = useStore(({ expandPins }) => expandPins);
+  const expandPins = usePinsStore(({ expandPins }) => expandPins);
 
-  const handleAddPin = useStore(({ handleAddPin }) => handleAddPin);
+  const handleAddPin = usePinsStore(({ handleAddPin }) => handleAddPin);
 
-  const handleDeletePin = useStore(({ handleDeletePin }) => handleDeletePin);
+  const handleDeletePin = usePinsStore(
+    ({ handleDeletePin }) => handleDeletePin
+  );
 
-  const handleDeletePrompt = useStore(
+  const handleDeletePrompt = usePinsStore(
     ({ handleDeletePrompt }) => handleDeletePrompt
   );
 
-  const handleExpandPins = useStore(({ handleExpandPins }) => handleExpandPins);
+  const handleExpandPins = usePinsStore(
+    ({ handleExpandPins }) => handleExpandPins
+  );
 
   return (
     <>
@@ -39,10 +45,10 @@ const Pins = () => {
             handleExpandPins={handleExpandPins}
             expandPins={expandPins}
           />
-          <Spacer mb={75} />
+          <Spacer length={75} />
         </React.Fragment>
       ))}
-      <Button variant="solid" align="center" onClick={handleAddPin}>
+      <Button align="center" onClick={handleAddPin}>
         ADD NEW PINFO
       </Button>
     </>

@@ -1,16 +1,16 @@
 import React from "react";
-import Wrapper from "./style.InputBar";
+import InputBarWrapper from "./style";
 import Button from "../../Button/Button";
 
 const InputBar = () => {
   return (
-    <Wrapper>
+    <InputBarWrapper>
       <span className="url">site.url/</span>
       <form className="form">
         <input className="input" placeholder="yourname" type="text" />
-        <Button>START PAGE</Button>
+        <Button variant="special">START PAGE</Button>
       </form>
-    </Wrapper>
+    </InputBarWrapper>
   );
 };
 

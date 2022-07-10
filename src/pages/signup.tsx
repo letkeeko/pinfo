@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { COLOR } from "../components/variables";
 import Link from "next/link";
 import styled from "styled-components";
-import Seo from "../components/Seo";
+import Head from "../components/Head";
 import NavBar from "../components/FrontPage/NavBar/NavBar";
 import Heading from "../components/Heading/Heading";
 import Text from "../components/Text/Text";
@@ -12,17 +12,17 @@ import SignupForm from "../components/FrontPage/SignupForm/SignupForm";
 const Signup: NextPage = () => {
   return (
     <Wrapper>
-      <Seo title="Sign Up" description="TBD" />
+      <Head title="Sign Up" description="TBD" />
 
       <div className="flex-row">
         <div className="col col--white">
           <NavBar />
 
-          <Spacer mt={48} />
+          <Spacer length={48} />
 
           <Heading as="h1">Free forever</Heading>
 
-          <Spacer mb={8} />
+          <Spacer length={8} />
 
           <Text>
             Already have an account?{" "}
@@ -31,7 +31,7 @@ const Signup: NextPage = () => {
             </Link>
           </Text>
 
-          <Spacer mt={42} />
+          <Spacer length={42} />
 
           <SignupForm />
         </div>

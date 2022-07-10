@@ -1,32 +1,53 @@
 import React from "react";
-import { BsTriangleFill, BsCircleFill, BsPlusLg } from "react-icons/bs";
-import Wrapper from "./Button.style";
+import { BsTriangleFill, BsCircleFill } from "react-icons/bs";
+import {
+  FillButtonWrapper,
+  OutlineButtonWrapper,
+  DangerButtonWrapper,
+  SpecialButtonWrapper,
+} from "./style";
 
 export type ButtonProps = {
   children: React.ReactNode;
   variant?: string;
   align?: string;
   onClick?: () => void;
+  disabled?: boolean;
 };
 
 const Button = (props: ButtonProps) => {
-  const { children, variant, align, onClick } = props;
+  const { children, variant, align, onClick, disabled } = props;
 
-  if (variant === "solid") {
+  if (variant === "special") {
     return (
-      <Wrapper variant={variant} align={align} onClick={onClick}>
-        <BsPlusLg className="icon icon--front" role="presentation" />
+      <SpecialButtonWrapper align={align} onClick={onClick} disabled={disabled}>
+        <BsCircleFill className="icon icon--behind" role="presentation" />
+        <BsTriangleFill className="icon icon--front" role="presentation" />
         <span className="label">{children}</span>
-      </Wrapper>
+      </SpecialButtonWrapper>
+    );
+  }
+
+  if (variant === "outline") {
+    return (
+      <OutlineButtonWrapper align={align} onClick={onClick} disabled={disabled}>
+        <span className="label">{children}</span>
+      </OutlineButtonWrapper>
+    );
+  }
+
+  if (variant === "danger") {
+    return (
+      <DangerButtonWrapper align={align} onClick={onClick} disabled={disabled}>
+        <span className="label">{children}</span>
+      </DangerButtonWrapper>
     );
   }
 
   return (
-    <Wrapper align={align} onClick={onClick}>
-      <BsCircleFill className="icon icon--behind" role="presentation" />
-      <BsTriangleFill className="icon icon--front" role="presentation" />
+    <FillButtonWrapper align={align} onClick={onClick} disabled={disabled}>
       <span className="label">{children}</span>
-    </Wrapper>
+    </FillButtonWrapper>
   );
 };
 

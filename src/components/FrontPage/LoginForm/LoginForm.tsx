@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "./style.LoginForm";
+import LoginFormWrapper from "./style";
 import Input from "../../Input/Input";
 import Button from "../../Button/Button";
 import Spacer from "../../Spacer/Spacer";
@@ -11,30 +11,33 @@ const LoginForm = () => {
   };
 
   return (
-    <Wrapper>
+    <LoginFormWrapper>
       <form>
-        <Input type="email" label="Email address" required />
+        <Input type="email" label="Email address" name="login_email" required />
 
-        <Spacer mt={25} />
+        <Spacer length={25} />
 
         <Input
           type="password"
           placeholder="★ ★ ★ ★ ★"
           label="Password"
+          name="login_password"
           required
         />
 
-        <Spacer mt={25} />
+        <Spacer length={25} />
 
         <button className="btn-text" onClick={handleReset}>
           Forgot password?
         </button>
 
-        <Spacer mt={35} />
+        <Spacer length={35} />
 
-        <Button align="center">SIGN IN</Button>
+        <Button align="center" variant="special">
+          SIGN IN
+        </Button>
       </form>
-    </Wrapper>
+    </LoginFormWrapper>
   );
 };
 
