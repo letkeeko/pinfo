@@ -117,13 +117,19 @@ export const ModalLinksWrapper = styled.div`
   }
 `;
 
-export const ModalMediaLibraryWrapper = styled.div`
+type ModalMediaLibraryWrapperProps = {
+  isGlobal: boolean;
+};
+
+export const ModalMediaLibraryWrapper = styled.div<ModalMediaLibraryWrapperProps>`
   background-color: ${COLOR.white};
   border-radius: 8px;
   max-width: 1000px;
+  max-height: 750px;
   width: 100%;
   z-index: 5;
-  padding: 36px;
+  padding: 36px 36px 0 36px;
+  overflow: scroll;
 
   .img-list {
     display: flex;
@@ -131,10 +137,10 @@ export const ModalMediaLibraryWrapper = styled.div`
     margin: 36px -9px 18px -9px;
 
     &__each {
+      cursor: ${({ isGlobal }) => (isGlobal ? "auto" : "pointer")};
       width: calc(20% - 18px);
       margin: 0 9px 18px 9px;
       overflow: hidden;
-      cursor: pointer;
       padding: 9px;
       border: 1px solid ${COLOR.getBlack(0.125)};
       position: relative;
@@ -208,5 +214,12 @@ export const ModalMediaLibraryWrapper = styled.div`
         opacity: 1;
       }
     }
+  }
+
+  .btn-wrap {
+    position: sticky;
+    background-color: ${COLOR.white};
+    bottom: 0;
+    padding: 36px 0;
   }
 `;

@@ -1,4 +1,5 @@
 import React from "react";
+import { COLOR } from "../../variables";
 import { ProfileWrapper } from "./style";
 import { RiImageLine } from "react-icons/ri";
 import Card from "../../Card/Card";
@@ -7,16 +8,21 @@ import Button from "../../Button/Button";
 import Input from "../../Input/Input";
 import Select from "../../Select/Select";
 import categoryOptions from "../../../static/categoryOptions";
+import useMediaStore from "../../../stores/useMediaStore";
 import useAppearanceStore from "../../../stores/useAppearanceStore";
 import Spacer from "../../Spacer/Spacer";
 
 const Profile = () => {
-  const { profile_title, profile_category } = useAppearanceStore(
+  const { profile_title, profile_category, image } = useAppearanceStore(
     ({ details }) => details
   );
 
   const handleDetailsChange = useAppearanceStore(
     ({ handleDetailsChange }) => handleDetailsChange
+  );
+
+  const toggleMediaModal = useMediaStore(
+    ({ toggleMediaModal }) => toggleMediaModal
   );
 
   return (
@@ -27,10 +33,18 @@ const Profile = () => {
 
       <Card>
         <div className="flex-wrap">
-          <div className="img-preview">
-            <RiImageLine />
+          <div
+            className="img-preview"
+            style={{
+              backgroundImage: !!image ? `url(${image})` : `none`,
+              border: !!image ? `none` : `1px dashed ${COLOR.getBlue(0.5)}`,
+            }}
+          >
+            {!image && <RiImageLine />}
           </div>
-          <Button variant="outline">Select Photo</Button>
+          <Button variant="outline" onClick={() => toggleMediaModal("profile")}>
+            Select Photo
+          </Button>
         </div>
 
         <Spacer length={25} />

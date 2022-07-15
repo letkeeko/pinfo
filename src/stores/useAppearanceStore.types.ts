@@ -35,7 +35,7 @@ export type AppearanceStoreProps = {
   button: buttonProps;
   font: fontProps;
   activeColorPickers: string[];
-  handleDetailsChange: (e: React.ChangeEvent) => void;
+  handleDetailsChange: (key: string, value: string) => void;
   handleBackgroundChange: (key: string, value: string) => void;
   handleButtonChange: (key: string, value: string) => void;
   handleFontChange: (key: string, value: string) => void;

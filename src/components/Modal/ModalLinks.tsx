@@ -1,7 +1,6 @@
 import React from "react";
 import Text from "../Text/Text";
 import useLinksStore from "../../stores/useLinksStore";
-import useDialogStore from "../../stores/useDialogStore";
 import { ModalContainerWrapper, ModalLinksWrapper } from "./style";
 import { TbSearch } from "react-icons/tb";
 import { CgClose } from "react-icons/cg";
@@ -24,8 +23,8 @@ const ModalLinks = () => {
     ({ handleAddPlatform }) => handleAddPlatform
   );
 
-  const toggleLinkIconsModal = useDialogStore(
-    ({ toggleLinkIconsModal }) => toggleLinkIconsModal
+  const toggleModalLinks = useLinksStore(
+    ({ toggleModalLinks }) => toggleModalLinks
   );
 
   const debouncedHandleSearchPlatform = useDebouncedCallback(
@@ -66,7 +65,7 @@ const ModalLinks = () => {
 
           <button
             className="search-input-wrap__close-btn"
-            onClick={toggleLinkIconsModal}
+            onClick={toggleModalLinks}
           >
             <CgClose />
           </button>
@@ -100,7 +99,7 @@ const ModalLinks = () => {
         </div>
       </ModalLinksWrapper>
 
-      <BlankOverlay closeCallback={toggleLinkIconsModal} />
+      <BlankOverlay closeCallback={toggleModalLinks} />
     </ModalContainerWrapper>
   );
 };

@@ -1,10 +1,7 @@
 import create from "zustand";
 import platformOptions from "../static/platformOptions";
 import isValidUrl from "../utils/is-valid-url";
-import useDialogStore from "./useDialogStore";
 import { LinksStoreProps } from "./useLinksStore.types";
-
-const toggleLinkIconsModal = useDialogStore.getState().toggleLinkIconsModal;
 
 const useLinksStore = create<LinksStoreProps>((set, get) => ({
   links: [],
@@ -15,10 +12,19 @@ const useLinksStore = create<LinksStoreProps>((set, get) => ({
 
   searchablePlatforms: platformOptions,
 
+  isModalLinks: false,
+
+  // simply toggle the modal
+  toggleModalLinks: () => {
+    set(({ isModalLinks }) => ({
+      isModalLinks: !isModalLinks,
+    }));
+  },
+
   handleSearchPlatform: (value) => {
     // if empty simply reset back to full list
     if (!value.length) {
-      set((state) => ({
+      set(() => ({
         searchablePlatforms: platformOptions,
       }));
     }
@@ -33,11 +39,11 @@ const useLinksStore = create<LinksStoreProps>((set, get) => ({
   },
 
   handleAddPlatform: (value) => {
-    toggleLinkIconsModal();
     const links = get().links;
 
     set(() => ({
       links: [...links, value],
+      isModalLinks: false,
     }));
   },
 
@@ -56,7 +62,7 @@ const useLinksStore = create<LinksStoreProps>((set, get) => ({
       return;
     }
 
-    set((state) => ({
+    set(() => ({
       deletePrompt: [...deletePrompt, value],
     }));
   },
@@ -77,7 +83,7 @@ const useLinksStore = create<LinksStoreProps>((set, get) => ({
       (currentPlatform) => currentPlatform !== value
     );
 
-    set((state) => ({
+    set(() => ({
       links: filteredLinks,
       deletePrompt: filteredDeletePrompt,
       invalidUrls: filteredInvalidUrls,
@@ -108,13 +114,13 @@ const useLinksStore = create<LinksStoreProps>((set, get) => ({
       const filteredInvalidUrls = invalidUrls.filter(
         (currentPlatform) => currentPlatform !== platform
       );
-      set((state) => ({
+      set(() => ({
         invalidUrls: filteredInvalidUrls,
       }));
     }
 
     if (!isValidUrl(url) && !invalidUrls.includes(platform)) {
-      set((state) => ({
+      set(() => ({
         invalidUrls: [...invalidUrls, platform],
       }));
     }

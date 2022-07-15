@@ -2,16 +2,13 @@ import React from "react";
 import Button from "../../Button/Button";
 import Spacer from "../../Spacer/Spacer";
 import useLinksStore from "../../../stores/useLinksStore";
-import useDialogStore from "../../../stores/useDialogStore";
+import ModalLinks from "../../Modal/ModalLinks";
 import LinkField from "./LinkField";
 import Text from "../../Text/Text";
 import { COLOR } from "../../variables";
 
 const Links = () => {
   const links = useLinksStore(({ links }) => links);
-  const toggleLinkIconsModal = useDialogStore(
-    ({ toggleLinkIconsModal }) => toggleLinkIconsModal
-  );
 
   // delete prompt confirmation tracker
   const deletePrompt = useLinksStore(({ deletePrompt }) => deletePrompt);
@@ -26,6 +23,12 @@ const Links = () => {
 
   const invalidUrls = useLinksStore(({ invalidUrls }) => invalidUrls);
 
+  const isModalLinks = useLinksStore(({ isModalLinks }) => isModalLinks);
+
+  const toggleModalLinks = useLinksStore(
+    ({ toggleModalLinks }) => toggleModalLinks
+  );
+
   return (
     <>
       {!!links.length &&
@@ -39,6 +42,7 @@ const Links = () => {
               handleDeletePrompt={handleDeletePrompt}
               handleDeleteLink={handleDeleteLink}
             />
+
             <Spacer length={30} />
           </React.Fragment>
         ))}
@@ -59,9 +63,11 @@ const Links = () => {
 
       <Spacer length={60} />
 
-      <Button align="center" onClick={toggleLinkIconsModal}>
+      <Button align="center" onClick={toggleModalLinks}>
         Add New Link
       </Button>
+
+      {isModalLinks && <ModalLinks />}
     </>
   );
 };

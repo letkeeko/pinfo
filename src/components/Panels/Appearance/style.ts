@@ -14,12 +14,13 @@ export const ProfileWrapper = styled.div`
     align-items: center;
 
     .img-preview {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       width: 100px;
       height: 100px;
-      border: 1px dashed ${COLOR.getBlue(0.5)};
       margin: 0 25px 0 0;
       border-radius: 50%;
-      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -78,6 +79,9 @@ export const BackgroundWrapper = styled.div`
 
         &--image {
           border: 1px dashed ${COLOR.getBlue(0.5)};
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -89,7 +93,7 @@ export const BackgroundWrapper = styled.div`
         }
 
         &--active {
-          border: 2px solid ${COLOR.yellow};
+          border: 3px solid ${COLOR.yellow};
         }
       }
     }
@@ -124,7 +128,7 @@ export const ButtonsWrapper = styled.div`
         }
 
         &--active {
-          border: 2px solid ${COLOR.yellow};
+          border: 3px solid ${COLOR.yellow};
         }
       }
     }
@@ -168,7 +172,7 @@ export const FontsWrapper = styled.div`
 
       &--active {
         .content {
-          border: 2px solid ${COLOR.yellow};
+          border: 3px solid ${COLOR.yellow};
         }
       }
     }

@@ -3,9 +3,7 @@ type SeoStoreTypes = {
   meta_description: string;
   isModalOpen: boolean;
   toggleModal: () => void;
-  handleChange: (
-    e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
+  handleChange: (key: string, value: string) => void;
   [key: string]: any;
 };
 

@@ -9,17 +9,14 @@ const useSeoStore = create<SeoStoreTypes>((set, get) => ({
   isModalOpen: false,
 
   toggleModal: () => {
-    set((state) => ({
-      ...state,
-      isModalOpen: !state.isModalOpen,
+    set(({ isModalOpen }) => ({
+      isModalOpen: !isModalOpen,
     }));
   },
 
-  handleChange: (e) => {
+  handleChange: (key: string, value: string) => {
     set((state) => {
-      const target = e.target as HTMLInputElement;
-
-      state[target.name] = target.value;
+      state[key] = value;
 
       return {
         ...state,

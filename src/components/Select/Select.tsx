@@ -6,7 +6,7 @@ type SelectProps = {
   value: string;
   defaultValue: string;
   name: string;
-  handleChange: any;
+  handleChange: (key: string, value: string) => void;
 };
 
 const Select = (props: SelectProps) => {
@@ -24,7 +24,7 @@ const Select = (props: SelectProps) => {
         name={name}
         id={name}
         value={value}
-        onChange={handleChange}
+        onChange={(e) => handleChange(e.target.name, e.target.value)}
         required
       >
         <option value="">Select a category</option>

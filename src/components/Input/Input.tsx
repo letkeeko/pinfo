@@ -9,7 +9,7 @@ type InputProps = {
   required?: boolean;
   defaultValue?: string;
   value?: string;
-  handleChange?: (e: React.ChangeEvent) => void;
+  handleChange: (key: string, value: string) => void;
 };
 
 const Input = (props: InputProps) => {
@@ -42,7 +42,7 @@ const Input = (props: InputProps) => {
           type={type}
           placeholder={placeholder}
           required={required}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e.target.name, e.target.value)}
         />
       )}
 
@@ -55,7 +55,7 @@ const Input = (props: InputProps) => {
           id={name}
           placeholder={placeholder}
           required={required}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e.target.name, e.target.value)}
         />
       )}
     </InputWrapper>

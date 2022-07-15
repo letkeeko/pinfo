@@ -6,10 +6,6 @@ const useDialogStore = create<DialogStoreProps>((set) => ({
 
   isPopoverShare: false,
 
-  isMediaModal: false,
-
-  isLinkIconsModal: false,
-
   togglePopoverAccount: () => {
     set(({ isPopoverAccount }) => ({
       isPopoverAccount: !isPopoverAccount,
@@ -19,18 +15,6 @@ const useDialogStore = create<DialogStoreProps>((set) => ({
   togglePopoverShare: () => {
     set(({ isPopoverShare }) => ({
       isPopoverShare: !isPopoverShare,
-    }));
-  },
-
-  toggleMediaModal: () => {
-    set(({ isMediaModal }) => ({
-      isMediaModal: !isMediaModal,
-    }));
-  },
-
-  toggleLinkIconsModal: () => {
-    set(({ isLinkIconsModal }) => ({
-      isLinkIconsModal: !isLinkIconsModal,
     }));
   },
 }));

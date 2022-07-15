@@ -9,7 +9,7 @@ export const AdminLayoutWrapper = styled.div`
     display: flex;
     position: relative;
     padding: 0 0 0 70px;
-    z-index: 5;
+    z-index: 1;
 
     .col {
       &--edit-panel {
@@ -118,17 +118,16 @@ export const LeftBarWrapper = styled.aside`
     margin: 0 auto;
   }
 
-  .avatar {
+  .bot {
     margin: auto auto 0 auto;
     position: relative;
     z-index: 2;
 
     &__btn {
-      border: 1px solid ${COLOR.black};
       background-color: ${COLOR.white};
+      border: 1px solid ${COLOR.getBlack(0.6)};
       color: ${COLOR.black};
       font-size: 1.18rem;
-
       cursor: pointer;
       text-align: center;
       display: flex;
@@ -137,9 +136,26 @@ export const LeftBarWrapper = styled.aside`
       height: 45px;
       border-radius: 50%;
 
-      .label {
-        margin: auto;
-        pointer-events: none;
+      &--media {
+        margin: 0 auto 36px auto;
+
+        .icon {
+          color: ${COLOR.getBlack(0.6)};
+          font-size: 1.4rem;
+          display: block;
+          margin: auto;
+        }
+      }
+
+      &--avatar {
+        background-color: ${COLOR.getBlack(0.6)};
+        border: none;
+        color: ${COLOR.white};
+
+        .label {
+          margin: auto;
+          pointer-events: none;
+        }
       }
     }
   }

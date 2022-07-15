@@ -26,6 +26,8 @@ export type LinksStoreProps = {
   deletePrompt: string[];
   invalidUrls: string[];
   searchablePlatforms: platformOptionsProps;
+  isModalLinks: boolean;
+  toggleModalLinks: () => void;
   handleSearchPlatform: (value: string) => void;
   handleAddPlatform: (value: LinkProps) => void;
   handleChange: (value: string, url: string) => void;

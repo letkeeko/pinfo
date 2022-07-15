@@ -1,17 +1,16 @@
 import create from "zustand";
-import useDialogStore from "./useDialogStore";
+import MediaStoreProps from "./useMediaStore.types";
 
-const toggleMediaModal = useDialogStore.getState().toggleMediaModal;
+const useMediaStore = create<MediaStoreProps>((set) => ({
+  isMediaModal: false,
 
-const useMediaStore = create<any>((set: any) => ({
-  selectedImage: "",
+  modalTriggerBy: "",
 
-  handleSelectImage: (src: any) => {
-    set(() => ({
-      selectedImage: src,
+  toggleMediaModal: (by = "") => {
+    set(({ isMediaModal }) => ({
+      isMediaModal: !isMediaModal,
+      modalTriggerBy: by,
     }));
-
-    toggleMediaModal();
   },
 }));
 
