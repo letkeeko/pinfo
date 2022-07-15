@@ -25,12 +25,7 @@ export type LinksStoreProps = {
   links: LinkProps[];
   deletePrompt: string[];
   invalidUrls: string[];
-  isModalOpen: boolean;
   searchablePlatforms: platformOptionsProps;
-  handleModal: (
-    value?: boolean,
-    e?: React.MouseEvent<HTMLButtonElement>
-  ) => void;
   handleSearchPlatform: (value: string) => void;
   handleAddPlatform: (value: LinkProps) => void;
   handleChange: (value: string, url: string) => void;

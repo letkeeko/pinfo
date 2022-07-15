@@ -36,7 +36,7 @@ const SignupFormWrapper = styled.div`
       max-width: 270px;
 
       a {
-        color: ${COLOR.blue};
+        color: ${COLOR.black};
         text-decoration: underline;
       }
     }

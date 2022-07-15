@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import { COLOR } from "../variables";
 
-export const LayoutWrapper = styled.div`
-  color: ${COLOR.blue};
+export const AdminLayoutWrapper = styled.div`
+  color: ${COLOR.black};
   margin: 0 auto;
 
   .flex-row {
     display: flex;
     position: relative;
     padding: 0 0 0 70px;
-    z-index: 2;
+    z-index: 5;
 
     .col {
       &--edit-panel {
@@ -49,7 +49,7 @@ export const TopBarWrapper = styled.nav`
       display: block;
 
       .btn {
-        color: ${COLOR.blue};
+        color: ${COLOR.getBlack(0.625)};
         cursor: pointer;
         background-color: transparent;
         border: 0;
@@ -60,7 +60,7 @@ export const TopBarWrapper = styled.nav`
 
       &--active {
         &::after {
-          background-color: ${COLOR.blue};
+          background-color: ${COLOR.green};
           content: "";
           height: 2px;
           width: 100%;
@@ -124,9 +124,9 @@ export const LeftBarWrapper = styled.aside`
     z-index: 2;
 
     &__btn {
-      border: 1px solid ${COLOR.blue};
+      border: 1px solid ${COLOR.black};
       background-color: ${COLOR.white};
-      color: ${COLOR.blue};
+      color: ${COLOR.black};
       font-size: 1.18rem;
 
       cursor: pointer;

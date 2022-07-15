@@ -19,7 +19,7 @@ export const PopoverAccountWrapper = styled.div`
       line-height: 30px;
       background-color: transparent;
       border: 0;
-      color: ${COLOR.blue};
+      color: ${COLOR.black};
       white-space: pre;
       cursor: pointer;
 
@@ -29,7 +29,7 @@ export const PopoverAccountWrapper = styled.div`
       }
 
       &--active {
-        color: ${COLOR.yellow};
+        color: ${COLOR.green};
       }
     }
 
@@ -53,7 +53,7 @@ export const PopoverShareWrapper = styled.div`
     padding: 25px 75px 25px 25px;
 
     &__tip-txt {
-      color: ${COLOR.getBlue(0.7)};
+      color: ${COLOR.getBlack(0.6)};
       font-weight: 300;
       font-size: 0.825rem;
       line-height: 1.4;
@@ -65,7 +65,7 @@ export const PopoverShareWrapper = styled.div`
       line-height: 30px;
       background-color: transparent;
       border: 0;
-      color: ${COLOR.blue};
+      color: ${COLOR.black};
       white-space: pre;
       cursor: pointer;
 
@@ -75,7 +75,7 @@ export const PopoverShareWrapper = styled.div`
       }
 
       &--active {
-        color: ${COLOR.yellow};
+        color: ${COLOR.green};
       }
     }
 

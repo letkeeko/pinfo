@@ -2,13 +2,16 @@ import React from "react";
 import Button from "../../Button/Button";
 import Spacer from "../../Spacer/Spacer";
 import useLinksStore from "../../../stores/useLinksStore";
+import useDialogStore from "../../../stores/useDialogStore";
 import LinkField from "./LinkField";
 import Text from "../../Text/Text";
 import { COLOR } from "../../variables";
 
 const Links = () => {
   const links = useLinksStore(({ links }) => links);
-  const handleModal = useLinksStore(({ handleModal }) => handleModal);
+  const toggleLinkIconsModal = useDialogStore(
+    ({ toggleLinkIconsModal }) => toggleLinkIconsModal
+  );
 
   // delete prompt confirmation tracker
   const deletePrompt = useLinksStore(({ deletePrompt }) => deletePrompt);
@@ -56,8 +59,8 @@ const Links = () => {
 
       <Spacer length={60} />
 
-      <Button align="center" onClick={handleModal}>
-        ADD NEW LINK
+      <Button align="center" onClick={toggleLinkIconsModal}>
+        Add New Link
       </Button>
     </>
   );

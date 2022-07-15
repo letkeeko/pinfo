@@ -1,15 +1,15 @@
 import React from "react";
 import LeftBar from "./LeftBar";
 import TopBar from "./TopBar";
-import { LayoutWrapper } from "./style";
+import { AdminLayoutWrapper } from "./style";
 import useActivePage from "../../hooks/useActivePage";
 import SeoPreview from "../Panels/Seo/SeoPreview";
-import useLinksStore from "../../stores/useLinksStore";
 import useSeoStore from "../../stores/useSeoStore";
 import ModalLinks from "../Modal/ModalLinks";
 import ModalGuide from "../Modal/ModalGuide";
-import PopToolShare from "../Popover/PopoverShare";
-import PopToolAccount from "../Popover/PopoverAccount";
+// import ModalMediaLibrary from "../Modal/ModalMediaLibrary";
+import PopoverShare from "../Popover/PopoverShare";
+import PopoverAccount from "../Popover/PopoverAccount";
 import useDialogStore from "../../stores/useDialogStore";
 
 type LayoutProps = {
@@ -19,23 +19,27 @@ type LayoutProps = {
 const AdminLayout = (props: LayoutProps) => {
   const { children } = props;
 
-  const isModalLinks = useLinksStore(({ isModalOpen }) => isModalOpen);
+  const isLinkIconsModal = useDialogStore(
+    ({ isLinkIconsModal }) => isLinkIconsModal
+  );
+
+  // const isMediaModal = useDialogStore(({ isMediaModal }) => isMediaModal);
 
   const isModalSeo = useSeoStore(({ isModalOpen }) => isModalOpen);
 
   const activePage = useActivePage();
 
-  const isPopToolAccount = useDialogStore(
-    ({ isPopToolAccount }) => isPopToolAccount
+  const isPopoverAccount = useDialogStore(
+    ({ isPopoverAccount }) => isPopoverAccount
   );
 
-  const isPopToolShare = useDialogStore(({ isPopToolShare }) => isPopToolShare);
+  const isPopoverShare = useDialogStore(({ isPopoverShare }) => isPopoverShare);
 
   return (
-    <LayoutWrapper>
-      <LeftBar />
-      <TopBar />
+    <AdminLayoutWrapper>
       <div className="flex-row">
+        <LeftBar />
+        <TopBar />
         <div className="col col--edit-panel">{children}</div>
         <div className="col col--preview">
           {activePage === "/admin/seo" && <SeoPreview />}
@@ -43,15 +47,12 @@ const AdminLayout = (props: LayoutProps) => {
           {activePage !== "/admin/seo" && <p>Page preview</p>}
         </div>
       </div>
-
-      {isModalLinks && <ModalLinks />}
-
+      {isLinkIconsModal && <ModalLinks />}
       {isModalSeo && <ModalGuide />}
-
-      {isPopToolShare && <PopToolShare />}
-
-      {isPopToolAccount && <PopToolAccount />}
-    </LayoutWrapper>
+      {isPopoverShare && <PopoverShare />}
+      {isPopoverAccount && <PopoverAccount />}
+      {/* {isMediaModal && <ModalMediaLibrary />} */}
+    </AdminLayoutWrapper>
   );
 };
 

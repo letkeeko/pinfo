@@ -1,3 +1,5 @@
+import React from "react";
+
 type backgroundProps = {
   image: string | null;
   grainy: string;
@@ -21,11 +23,19 @@ type fontProps = {
   [key: string]: any;
 };
 
+type detailsProps = {
+  profile_title: string;
+  profile_category: string;
+  [key: string]: any;
+};
+
 export type AppearanceStoreProps = {
+  details: detailsProps;
   background: backgroundProps;
   button: buttonProps;
   font: fontProps;
   activeColorPickers: string[];
+  handleDetailsChange: (e: React.ChangeEvent) => void;
   handleBackgroundChange: (key: string, value: string) => void;
   handleButtonChange: (key: string, value: string) => void;
   handleFontChange: (key: string, value: string) => void;

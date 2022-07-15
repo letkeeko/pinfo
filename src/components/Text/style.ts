@@ -9,7 +9,7 @@ export const TextWrapper = styled.p<TextProps>`
   font-size: 1rem;
 
   a {
-    color: ${COLOR.blue};
+    color: ${COLOR.black};
     text-decoration: underline;
   }
 `;

@@ -15,8 +15,8 @@ const TopBar = () => {
     return "menu-list__each";
   };
 
-  const togglePopToolShare = useDialogStore(
-    ({ togglePopToolShare }) => togglePopToolShare
+  const togglePopoverShare = useDialogStore(
+    ({ togglePopoverShare }) => togglePopoverShare
   );
 
   return (
@@ -47,7 +47,7 @@ const TopBar = () => {
 
         <div className="col col--two">
           <li className="menu-list__each menu-list__each--share">
-            <button className="btn" onClick={togglePopToolShare}>
+            <button className="btn" onClick={togglePopoverShare}>
               Share
             </button>
           </li>

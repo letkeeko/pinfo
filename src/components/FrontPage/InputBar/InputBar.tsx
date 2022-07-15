@@ -8,7 +8,7 @@ const InputBar = () => {
       <span className="url">site.url/</span>
       <form className="form">
         <input className="input" placeholder="yourname" type="text" />
-        <Button variant="special">START PAGE</Button>
+        <Button variant="special">Start My Page</Button>
       </form>
     </InputBarWrapper>
   );

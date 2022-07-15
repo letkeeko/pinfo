@@ -5,8 +5,8 @@ import Logo from "../../svg/monogram";
 import useDialogStore from "../../stores/useDialogStore";
 
 const LeftBar = () => {
-  const togglePopToolAccount = useDialogStore(
-    ({ togglePopToolAccount }) => togglePopToolAccount
+  const togglePopoverAccount = useDialogStore(
+    ({ togglePopoverAccount }) => togglePopoverAccount
   );
 
   return (
@@ -18,7 +18,7 @@ const LeftBar = () => {
       </Link>
 
       <div className="avatar">
-        <button className="avatar__btn" onClick={togglePopToolAccount}>
+        <button className="avatar__btn" onClick={togglePopoverAccount}>
           <label className="label">Ke</label>
         </button>
       </div>

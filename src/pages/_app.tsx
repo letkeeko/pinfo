@@ -6,7 +6,7 @@ import { COLOR } from "../components/variables";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <NextNProgress color={COLOR.yellow} height={4} />
+      <NextNProgress color={COLOR.yellow} height={3} />
       <Component {...pageProps} />
     </>
   );

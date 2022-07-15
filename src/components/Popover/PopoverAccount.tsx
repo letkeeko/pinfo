@@ -18,8 +18,8 @@ const PopoverAccount = () => {
     return "nav-item__btn";
   };
 
-  const togglePopToolAccount = useDialogStore(
-    ({ togglePopToolAccount }) => togglePopToolAccount
+  const togglePopoverAccount = useDialogStore(
+    ({ togglePopoverAccount }) => togglePopoverAccount
   );
 
   return (
@@ -29,7 +29,7 @@ const PopoverAccount = () => {
           <Link href="/admin/account">
             <a
               className={getActiveClassName("/admin/account")}
-              onClick={togglePopToolAccount}
+              onClick={togglePopoverAccount}
             >
               <VscAccount className="icon" /> <Text>My Account</Text>
             </a>
@@ -40,7 +40,7 @@ const PopoverAccount = () => {
           <Link href="/admin/seo">
             <a
               className={getActiveClassName("/admin/seo")}
-              onClick={togglePopToolAccount}
+              onClick={togglePopoverAccount}
             >
               <VscSearch className="icon" /> <Text>SEO</Text>
             </a>
@@ -48,13 +48,13 @@ const PopoverAccount = () => {
         </div>
 
         <div className="nav-item nav-item--border">
-          <button className="nav-item__btn" onClick={togglePopToolAccount}>
+          <button className="nav-item__btn" onClick={togglePopoverAccount}>
             <VscArrowLeft className="icon" /> <Text>Logout</Text>
           </button>
         </div>
       </PopoverAccountWrapper>
 
-      <BlankOverlay closeCallback={togglePopToolAccount} />
+      <BlankOverlay closeCallback={togglePopoverAccount} />
     </>
   );
 };

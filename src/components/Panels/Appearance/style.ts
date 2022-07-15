@@ -8,6 +8,41 @@ const settingsCss = css`
   }
 `;
 
+export const ProfileWrapper = styled.div`
+  .flex-wrap {
+    display: flex;
+    align-items: center;
+
+    .img-preview {
+      width: 100px;
+      height: 100px;
+      border: 1px dashed ${COLOR.getBlue(0.5)};
+      margin: 0 25px 0 0;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        color: ${COLOR.getBlue(0.3)};
+        font-size: 3rem;
+        border-radius: 9px;
+      }
+    }
+  }
+
+  input,
+  select {
+    opacity: 0.5;
+    max-width: 420px;
+
+    &:focus {
+      opacity: 1;
+    }
+  }
+`;
+
 export const BackgroundWrapper = styled.div`
   .option-list {
     display: flex;
@@ -42,21 +77,19 @@ export const BackgroundWrapper = styled.div`
         }
 
         &--image {
-          border: ${COLOR.blue} dashed 1px;
+          border: 1px dashed ${COLOR.getBlue(0.5)};
           display: flex;
           align-items: center;
           justify-content: center;
 
           svg {
-            background-color: ${COLOR.getBlue(0.3)};
-            color: ${COLOR.white};
+            color: ${COLOR.getBlue(0.3)};
             font-size: 3rem;
-            border-radius: 9px;
           }
         }
 
         &--active {
-          border: 3px solid ${COLOR.yellow};
+          border: 2px solid ${COLOR.yellow};
         }
       }
     }
@@ -91,7 +124,7 @@ export const ButtonsWrapper = styled.div`
         }
 
         &--active {
-          border: 3px solid ${COLOR.yellow};
+          border: 2px solid ${COLOR.yellow};
         }
       }
     }
@@ -135,7 +168,7 @@ export const FontsWrapper = styled.div`
 
       &--active {
         .content {
-          border: 3px solid ${COLOR.yellow};
+          border: 2px solid ${COLOR.yellow};
         }
       }
     }

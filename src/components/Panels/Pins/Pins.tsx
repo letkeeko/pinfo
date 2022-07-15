@@ -1,5 +1,5 @@
 import React from "react";
-import TextEditor from "../../TextEditor/TextEditor";
+import TextEditor from "../../TextEditor/QuillWrapper";
 import Button from "../../Button/Button";
 import Spacer from "../../Spacer/Spacer";
 import usePinsStore from "../../../stores/usePinsStore";
@@ -49,7 +49,7 @@ const Pins = () => {
         </React.Fragment>
       ))}
       <Button align="center" onClick={handleAddPin}>
-        ADD NEW PINFO
+        Add New Pinfo
       </Button>
     </>
   );

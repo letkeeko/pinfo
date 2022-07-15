@@ -2,7 +2,7 @@ import React from "react";
 import { BackgroundWrapper } from "./style";
 import Card from "../../Card/Card";
 import Text from "../../Text/Text";
-import { TbPhoto } from "react-icons/tb";
+import { RiImageLine } from "react-icons/ri";
 import useAppearanceStore from "../../../stores/useAppearanceStore";
 import Spacer from "../../Spacer/Spacer";
 import ColorPicker from "../../ColorPicker/ColorPicker";
@@ -73,7 +73,7 @@ const Background = () => {
               className={getActiveClassName("image")}
               onClick={() => handleActiveBackground("image")}
             >
-              <TbPhoto />
+              <RiImageLine />
             </div>
 
             <Text align="center">Image</Text>

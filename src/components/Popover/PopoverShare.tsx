@@ -20,8 +20,8 @@ const PopoverShare = () => {
     return "nav-item__btn";
   };
 
-  const togglePopToolShare = useDialogStore(
-    ({ togglePopToolShare }) => togglePopToolShare
+  const togglePopoverShare = useDialogStore(
+    ({ togglePopoverShare }) => togglePopoverShare
   );
 
   return (
@@ -77,7 +77,7 @@ const PopoverShare = () => {
         </div>
       </PopoverShareWrapper>
 
-      <BlankOverlay closeCallback={togglePopToolShare} />
+      <BlankOverlay closeCallback={togglePopoverShare} />
     </>
   );
 };

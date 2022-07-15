@@ -5,7 +5,7 @@ import Button from "../../Button/Button";
 import Spacer from "../../Spacer/Spacer";
 
 const LoginForm = () => {
-  const handleReset = (e: React.FormEvent) => {
+  const handleReset = (e: React.MouseEvent) => {
     e.preventDefault();
     alert("Reset password");
   };
@@ -34,7 +34,7 @@ const LoginForm = () => {
         <Spacer length={35} />
 
         <Button align="center" variant="special">
-          SIGN IN
+          Sign In
         </Button>
       </form>
     </LoginFormWrapper>

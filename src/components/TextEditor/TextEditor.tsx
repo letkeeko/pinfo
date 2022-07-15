@@ -1,12 +1,11 @@
-import React from "react";
-import dynamic from "next/dynamic";
+import React, { useRef, useState } from "react";
+import ReactQuill from "react-quill";
+import ModalMediaLibrary from "../Modal/ModalMediaLibrary";
 import TextEditorWrapper from "./style";
 import "react-quill/dist/quill.snow.css";
 import BrandIcon from "../../svg/brand-icon";
 import { TbTrash, TbChevronDown, TbChevronUp } from "react-icons/tb";
 import DeletePrompt from "../DeletePrompt/DeletePrompt";
-
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 type TextEditorProps = {
   pinId: number;
@@ -35,15 +34,34 @@ const TextEditor = (props: TextEditorProps) => {
     expandPins,
   } = props;
 
-  const toolbarOptions = {
-    toolbar: [
-      [{ header: [1, 2, 3, false] }],
-      ["bold", "italic"],
-      ["link"],
-      [{ list: "ordered" }, { list: "bullet" }],
-      ["image"],
-      ["video"],
-    ],
+  const [isMediaModal, setIsMediaModal] = useState(false);
+
+  const [rangeIndex, setRangeIndex] = useState<any>(null);
+
+  // use quill ref for custom image handler
+  const quillRef = useRef<any>(null);
+
+  // add url instead but there's a bug with toolbar
+  const imageHandler = () => {
+    // get current range index
+    const range = quillRef.current.getEditor().getSelection();
+
+    setRangeIndex(range.index);
+
+    setIsMediaModal(true);
+  };
+
+  // select image src url from media library modal
+  const selectImage = (src: string) => {
+    quillRef.current.getEditor().insertEmbed(rangeIndex, "image", src);
+
+    closeMediaModal();
+  };
+
+  // resets by selection or closing
+  const closeMediaModal = () => {
+    setIsMediaModal(false);
+    setRangeIndex(null);
   };
 
   // find current index's element
@@ -68,56 +86,75 @@ const TextEditor = (props: TextEditorProps) => {
     setPins(pins);
   };
 
-  const handleFocusBack = () => {
-    if (isDeletePrompted) {
-      handleDeletePrompt(pinId);
-    }
+  const toolbarOptions = {
+    toolbar: {
+      container: [
+        [{ header: [1, 2, 3, false] }],
+        ["bold", "italic"],
+        ["link"],
+        [{ list: "ordered" }, { list: "bullet" }],
+        ["image"],
+        ["video"],
+      ],
+      handlers: {
+        image: imageHandler,
+      },
+    },
   };
 
   return (
-    <TextEditorWrapper isExpand={expandPins.includes(pinId)}>
-      <div className="title-wrap">
-        <BrandIcon className="title-wrap__icon" />
-        <input
-          className="title-wrap__input"
-          type="text"
-          placeholder="Question / Title"
-          onChange={handleTitleChange}
-          defaultValue={pins[index].title}
-        />
-      </div>
-      <ReactQuill
-        placeholder="Answer / Description"
-        modules={toolbarOptions}
-        onChange={handleDescriptionChange}
-        onFocus={handleFocusBack}
-        defaultValue={pins[index].description}
-      />
-      <div className="controls">
-        <button
-          className="controls__btn controls__btn--lg"
-          onClick={() => handleExpandPins(pinId)}
-        >
-          {expandPins.includes(pinId) ? <TbChevronDown /> : <TbChevronUp />}
-        </button>
-
-        {pins.length > 1 && (
-          <button
-            className="controls__btn"
-            onClick={() => handleDeletePrompt(pinId)}
-          >
-            <TbTrash />
-          </button>
-        )}
-
-        {isDeletePrompted && (
-          <DeletePrompt
-            triggerDelete={() => handleDeletePin(pinId)}
-            triggerCancel={() => handleDeletePrompt(pinId)}
+    <>
+      <TextEditorWrapper isExpand={expandPins.includes(pinId)}>
+        <div className="title-wrap">
+          <BrandIcon className="title-wrap__icon" />
+          <input
+            className="title-wrap__input"
+            type="text"
+            placeholder="Question / Title"
+            onChange={handleTitleChange}
+            defaultValue={pins[index].title}
           />
-        )}
-      </div>
-    </TextEditorWrapper>
+        </div>
+        <ReactQuill
+          placeholder="Answer / Description"
+          modules={toolbarOptions}
+          onChange={handleDescriptionChange}
+          defaultValue={pins[index].description}
+          ref={quillRef}
+        />
+        <div className="controls">
+          <button
+            className="controls__btn controls__btn--lg"
+            onClick={() => handleExpandPins(pinId)}
+          >
+            {expandPins.includes(pinId) ? <TbChevronDown /> : <TbChevronUp />}
+          </button>
+
+          {pins.length > 1 && (
+            <button
+              className="controls__btn"
+              onClick={() => handleDeletePrompt(pinId)}
+            >
+              <TbTrash />
+            </button>
+          )}
+
+          {isDeletePrompted && (
+            <DeletePrompt
+              triggerDelete={() => handleDeletePin(pinId)}
+              triggerCancel={() => handleDeletePrompt(pinId)}
+            />
+          )}
+        </div>
+      </TextEditorWrapper>
+
+      {isMediaModal && (
+        <ModalMediaLibrary
+          selectImage={selectImage}
+          closeMediaModal={closeMediaModal}
+        />
+      )}
+    </>
   );
 };
 

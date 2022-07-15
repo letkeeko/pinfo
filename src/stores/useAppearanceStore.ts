@@ -1,35 +1,37 @@
+import React from "react";
 import create from "zustand";
 import { COLOR } from "../components/variables";
+import userPlaceholder from "../static/userPlaceholder";
 import { AppearanceStoreProps } from "./useAppearanceStore.types";
 
-const defaultBackground = {
-  image: null,
-  grainy: COLOR.blue,
-  gradient1: COLOR.blue,
-  gradient2: COLOR.ice,
-  flat: COLOR.blue,
-  variant: "flat",
-};
-
-const defaultButton = {
-  variant: "round",
-  button_colour: COLOR.blue,
-  button_font_colour: COLOR.white,
-};
-
-const defaultFont = {
-  variant: "Poppins",
-  font_colour: COLOR.blue,
-};
-
 const useAppearanceStore = create<AppearanceStoreProps>((set, get) => ({
-  background: defaultBackground,
+  background: userPlaceholder.background,
 
-  button: defaultButton,
+  button: userPlaceholder.button,
 
-  font: defaultFont,
+  font: userPlaceholder.font,
+
+  details: {
+    profile_title: "",
+    profile_category: "",
+  },
 
   activeColorPickers: [],
+
+  handleDetailsChange: (e) => {
+    const details = get().details;
+
+    const target = e.target as HTMLInputElement;
+
+    details[target.name] = target.value;
+
+    set((state) => ({
+      details: {
+        ...state.details,
+        details,
+      },
+    }));
+  },
 
   handleBackgroundChange: (key, value) => {
     const background = get().background;
@@ -126,6 +128,10 @@ const useAppearanceStore = create<AppearanceStoreProps>((set, get) => ({
       ...state,
       activeColorPickers: [...activeColorPickers, value],
     }));
+  },
+
+  saveToDatabase: () => {
+    console.log("save to database");
   },
 }));
 
