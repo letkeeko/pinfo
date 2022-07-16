@@ -6,7 +6,7 @@ const LoginFormWrapper = styled.div`
   width: 100%;
 
   .btn-text {
-    color: ${COLOR.blue};
+    color: ${COLOR.black};
     display: block;
     background-color: transparent;
     cursor: pointer;

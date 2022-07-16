@@ -9,8 +9,8 @@ const HelpTextWrapper = styled.div`
     padding: 0;
     border: 0;
     background-color: transparent;
-    color: ${COLOR.blue};
-    margin: 0 0 -3px 10px;
+    color: ${COLOR.black};
+    margin: 0 0 -4px 7px;
     cursor: pointer;
   }
 `;

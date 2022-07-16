@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import { COLOR } from "../variables";
 
-export const LayoutWrapper = styled.div`
-  color: ${COLOR.blue};
+export const AdminLayoutWrapper = styled.div`
+  color: ${COLOR.black};
   margin: 0 auto;
 
   .flex-row {
     display: flex;
     position: relative;
     padding: 0 0 0 70px;
-    z-index: 2;
+    z-index: 1;
 
     .col {
       &--edit-panel {
@@ -49,7 +49,7 @@ export const TopBarWrapper = styled.nav`
       display: block;
 
       .btn {
-        color: ${COLOR.blue};
+        color: ${COLOR.getBlack(0.625)};
         cursor: pointer;
         background-color: transparent;
         border: 0;
@@ -60,7 +60,7 @@ export const TopBarWrapper = styled.nav`
 
       &--active {
         &::after {
-          background-color: ${COLOR.blue};
+          background-color: ${COLOR.green};
           content: "";
           height: 2px;
           width: 100%;
@@ -118,17 +118,16 @@ export const LeftBarWrapper = styled.aside`
     margin: 0 auto;
   }
 
-  .avatar {
+  .bot {
     margin: auto auto 0 auto;
     position: relative;
     z-index: 2;
 
     &__btn {
-      border: 1px solid ${COLOR.blue};
       background-color: ${COLOR.white};
-      color: ${COLOR.blue};
+      border: 1px solid ${COLOR.getBlack(0.6)};
+      color: ${COLOR.black};
       font-size: 1.18rem;
-
       cursor: pointer;
       text-align: center;
       display: flex;
@@ -137,9 +136,26 @@ export const LeftBarWrapper = styled.aside`
       height: 45px;
       border-radius: 50%;
 
-      .label {
-        margin: auto;
-        pointer-events: none;
+      &--media {
+        margin: 0 auto 36px auto;
+
+        .icon {
+          color: ${COLOR.getBlack(0.6)};
+          font-size: 1.4rem;
+          display: block;
+          margin: auto;
+        }
+      }
+
+      &--avatar {
+        background-color: ${COLOR.getBlack(0.6)};
+        border: none;
+        color: ${COLOR.white};
+
+        .label {
+          margin: auto;
+          pointer-events: none;
+        }
       }
     }
   }

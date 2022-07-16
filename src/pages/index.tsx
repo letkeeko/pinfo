@@ -44,7 +44,7 @@ const Home: NextPage = () => {
 };
 
 const Wrapper = styled.div`
-  color: ${COLOR.blue};
+  color: ${COLOR.black};
   margin: 0 auto;
 
   .flex-row {

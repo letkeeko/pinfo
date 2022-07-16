@@ -8,6 +8,42 @@ const settingsCss = css`
   }
 `;
 
+export const ProfileWrapper = styled.div`
+  .flex-wrap {
+    display: flex;
+    align-items: center;
+
+    .img-preview {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100px;
+      height: 100px;
+      margin: 0 25px 0 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        color: ${COLOR.getBlue(0.3)};
+        font-size: 3rem;
+        border-radius: 9px;
+      }
+    }
+  }
+
+  input,
+  select {
+    opacity: 0.5;
+    max-width: 420px;
+
+    &:focus {
+      opacity: 1;
+    }
+  }
+`;
+
 export const BackgroundWrapper = styled.div`
   .option-list {
     display: flex;
@@ -42,16 +78,17 @@ export const BackgroundWrapper = styled.div`
         }
 
         &--image {
-          border: ${COLOR.blue} dashed 1px;
+          border: 1px dashed ${COLOR.getBlue(0.5)};
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
           display: flex;
           align-items: center;
           justify-content: center;
 
           svg {
-            background-color: ${COLOR.getBlue(0.3)};
-            color: ${COLOR.white};
+            color: ${COLOR.getBlue(0.3)};
             font-size: 3rem;
-            border-radius: 9px;
           }
         }
 

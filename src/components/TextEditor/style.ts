@@ -247,6 +247,10 @@ const TextEditorWrapper = styled.div<WrapperProps>`
           font-size: 1.3rem;
         }
 
+        img {
+          width: 80%;
+        }
+
         &::before {
           color: ${COLOR.getBlack(0.35)};
           font-size: 0.95rem;
@@ -289,8 +293,8 @@ const TextEditorWrapper = styled.div<WrapperProps>`
     }
   }
 
-  .quill > .ql-toolbar:first-child {
-    display: none !important;
+  .quill .ql-toolbar:first-child {
+    /* display: none; */
   }
 
   .controls {

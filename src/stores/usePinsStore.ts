@@ -18,48 +18,45 @@ const usePinsStore = create<PinsStoreProps>((set, get) => ({
   expandPins: [],
 
   handleChangePin: (pins) => {
-    set((state) => {
+    set(() => {
       return {
-        ...state,
         pins,
       };
     });
   },
 
   handleAddPin: () => {
-    set((state) => {
-      const { pins } = state;
+    const pins = get().pins;
 
+    set(() => {
       // simply increment id for new pin
       const currentLastId = pins[pins.length - 1];
 
       return {
-        ...state,
         pins: [...pins, getEmptyPin(currentLastId.id + 1)],
       };
     });
   },
 
   handleDeletePin: (id) => {
-    set((state) => {
-      const { pins, deletePrompt, expandPins } = state;
+    const pins = get().pins;
+    const deletePrompt = get().deletePrompt;
+    const expandPins = get().expandPins;
 
-      // filter out based on selected id
-      const filteredPins = pins.filter((pin) => pin.id !== id);
+    // filter out based on selected id
+    const filteredPins = pins.filter((pin) => pin.id !== id);
 
-      // delete its id in prompt as well
-      const filteredDeletePrompt = deletePrompt.filter((pinId) => pinId !== id);
+    // delete its id in prompt as well
+    const filteredDeletePrompt = deletePrompt.filter((pinId) => pinId !== id);
 
-      // delete its id in expand as well
-      const filteredExpandPins = expandPins.filter((pinId) => pinId !== id);
+    // delete its id in expand as well
+    const filteredExpandPins = expandPins.filter((pinId) => pinId !== id);
 
-      return {
-        ...state,
-        pins: filteredPins,
-        deletePrompt: filteredDeletePrompt,
-        expandPins: filteredExpandPins,
-      };
-    });
+    set(() => ({
+      pins: filteredPins,
+      deletePrompt: filteredDeletePrompt,
+      expandPins: filteredExpandPins,
+    }));
   },
 
   handleDeletePrompt: (id) => {
@@ -68,16 +65,14 @@ const usePinsStore = create<PinsStoreProps>((set, get) => ({
     if (deletePrompt.includes(id)) {
       const filteredDeletePrompt = deletePrompt.filter((pinId) => pinId !== id);
 
-      set((state) => ({
-        ...state,
+      set(() => ({
         deletePrompt: [...filteredDeletePrompt],
       }));
 
       return;
     }
 
-    set((state) => ({
-      ...state,
+    set(() => ({
       deletePrompt: [...deletePrompt, id],
     }));
   },
@@ -88,16 +83,14 @@ const usePinsStore = create<PinsStoreProps>((set, get) => ({
     if (expandPins.includes(id)) {
       const filteredExpandPins = expandPins.filter((pinId) => pinId !== id);
 
-      set((state) => ({
-        ...state,
+      set(() => ({
         expandPins: filteredExpandPins,
       }));
 
       return;
     }
 
-    set((state) => ({
-      ...state,
+    set(() => ({
       expandPins: [...expandPins, id],
     }));
   },

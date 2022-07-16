@@ -1,8 +1,8 @@
 type DialogStoreProps = {
-  isPopToolAccount: boolean;
-  isPopToolShare: boolean;
-  togglePopToolAccount: () => void;
-  togglePopToolShare: () => void;
+  isPopoverAccount: boolean;
+  isPopoverShare: boolean;
+  togglePopoverAccount: () => void;
+  togglePopoverShare: () => void;
 };
 
 export default DialogStoreProps;

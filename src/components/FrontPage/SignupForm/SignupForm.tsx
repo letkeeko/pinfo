@@ -53,7 +53,7 @@ const LoginForm = () => {
         <Spacer length={35} />
 
         <Button align="center" variant="special">
-          SIGN UP
+          Sign Up
         </Button>
       </form>
     </SignupFormWrapper>

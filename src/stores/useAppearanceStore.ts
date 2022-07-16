@@ -1,43 +1,36 @@
 import create from "zustand";
-import { COLOR } from "../components/variables";
+import userPlaceholder from "../static/userPlaceholder";
 import { AppearanceStoreProps } from "./useAppearanceStore.types";
 
-const defaultBackground = {
-  image: null,
-  grainy: COLOR.blue,
-  gradient1: COLOR.blue,
-  gradient2: COLOR.ice,
-  flat: COLOR.blue,
-  variant: "flat",
-};
-
-const defaultButton = {
-  variant: "round",
-  button_colour: COLOR.blue,
-  button_font_colour: COLOR.white,
-};
-
-const defaultFont = {
-  variant: "Poppins",
-  font_colour: COLOR.blue,
-};
-
 const useAppearanceStore = create<AppearanceStoreProps>((set, get) => ({
-  background: defaultBackground,
+  background: userPlaceholder.background,
 
-  button: defaultButton,
+  button: userPlaceholder.button,
 
-  font: defaultFont,
+  font: userPlaceholder.font,
+
+  details: userPlaceholder.details,
 
   activeColorPickers: [],
+
+  handleDetailsChange: (key, value) => {
+    const details = get().details;
+
+    // const target = e.target as HTMLInputElement;
+
+    details[key] = value;
+
+    set(() => ({
+      details: { ...details },
+    }));
+  },
 
   handleBackgroundChange: (key, value) => {
     const background = get().background;
 
     background[key] = value;
 
-    set((state) => ({
-      ...state,
+    set(() => ({
       background: { ...background },
     }));
   },
@@ -47,8 +40,7 @@ const useAppearanceStore = create<AppearanceStoreProps>((set, get) => ({
 
     button[key] = value;
 
-    set((state) => ({
-      ...state,
+    set(() => ({
       button: { ...button },
     }));
   },
@@ -58,8 +50,7 @@ const useAppearanceStore = create<AppearanceStoreProps>((set, get) => ({
 
     font[key] = value;
 
-    set((state) => ({
-      ...state,
+    set(() => ({
       font: { ...font },
     }));
   },
@@ -69,8 +60,7 @@ const useAppearanceStore = create<AppearanceStoreProps>((set, get) => ({
 
     background["variant"] = value;
 
-    set((state) => ({
-      ...state,
+    set(() => ({
       background: { ...background },
 
       // resets opened color picker when changing variant style
@@ -83,8 +73,7 @@ const useAppearanceStore = create<AppearanceStoreProps>((set, get) => ({
 
     button["variant"] = value;
 
-    set((state) => ({
-      ...state,
+    set(() => ({
       button: { ...button },
 
       // resets opened color picker when changing variant style
@@ -97,8 +86,7 @@ const useAppearanceStore = create<AppearanceStoreProps>((set, get) => ({
 
     font["variant"] = value;
 
-    set((state) => ({
-      ...state,
+    set(() => ({
       font: { ...font },
 
       // resets opened color picker when changing variant style
@@ -114,18 +102,20 @@ const useAppearanceStore = create<AppearanceStoreProps>((set, get) => ({
         (current) => current !== value
       );
 
-      set((state) => ({
-        ...state,
+      set(() => ({
         activeColorPickers: filteredActiveColorPickers,
       }));
 
       return;
     }
 
-    set((state) => ({
-      ...state,
+    set(() => ({
       activeColorPickers: [...activeColorPickers, value],
     }));
+  },
+
+  saveToDatabase: () => {
+    console.log("save to database");
   },
 }));
 

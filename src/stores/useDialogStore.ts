@@ -1,24 +1,22 @@
 import create from "zustand";
 import DialogStoreProps from "./useDialogStore.types";
 
-const useOverlayStore = create<DialogStoreProps>((set, get) => ({
-  isPopToolAccount: false,
+const useDialogStore = create<DialogStoreProps>((set) => ({
+  isPopoverAccount: false,
 
-  isPopToolShare: false,
+  isPopoverShare: false,
 
-  togglePopToolAccount: () => {
-    set((state) => ({
-      ...state,
-      isPopToolAccount: !state.isPopToolAccount,
+  togglePopoverAccount: () => {
+    set(({ isPopoverAccount }) => ({
+      isPopoverAccount: !isPopoverAccount,
     }));
   },
 
-  togglePopToolShare: () => {
-    set((state) => ({
-      ...state,
-      isPopToolShare: !state.isPopToolShare,
+  togglePopoverShare: () => {
+    set(({ isPopoverShare }) => ({
+      isPopoverShare: !isPopoverShare,
     }));
   },
 }));
 
-export default useOverlayStore;
+export default useDialogStore;

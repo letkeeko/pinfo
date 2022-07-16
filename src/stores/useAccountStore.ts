@@ -4,7 +4,6 @@ import AccountStoreProps from "./useAccountStore.types";
 const useAccountStore = create<AccountStoreProps>((set, get) => ({
   user: {
     name: "",
-    category: "",
   },
 
   handleChange: (e: any) => {

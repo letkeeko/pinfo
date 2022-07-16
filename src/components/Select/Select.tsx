@@ -1,17 +1,16 @@
 import SelectWrapper from "./style";
-import { VscChevronDown } from "react-icons/vsc";
 
 type SelectProps = {
   options: string[];
-  label: string;
+  label?: string;
   value: string;
   defaultValue: string;
   name: string;
-  handleChange: any;
+  handleChange: (key: string, value: string) => void;
 };
 
 const Select = (props: SelectProps) => {
-  const { options, value, defaultValue, label, name, handleChange } = props;
+  const { options, value, label, name, handleChange } = props;
 
   return (
     <SelectWrapper>
@@ -24,19 +23,17 @@ const Select = (props: SelectProps) => {
         className="select"
         name={name}
         id={name}
-        // value={value}
-        defaultValue={defaultValue}
-        onChange={handleChange}
+        value={value}
+        onChange={(e) => handleChange(e.target.name, e.target.value)}
+        required
       >
-        <option value=""></option>
+        <option value="">Select a category</option>
         {options.map((option) => (
           <option key={option} value={option}>
             {option}
           </option>
         ))}
       </select>
-
-      <VscChevronDown className="icon" />
     </SelectWrapper>
   );
 };

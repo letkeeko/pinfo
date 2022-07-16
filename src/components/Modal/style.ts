@@ -116,3 +116,110 @@ export const ModalLinksWrapper = styled.div`
     }
   }
 `;
+
+type ModalMediaLibraryWrapperProps = {
+  isGlobal: boolean;
+};
+
+export const ModalMediaLibraryWrapper = styled.div<ModalMediaLibraryWrapperProps>`
+  background-color: ${COLOR.white};
+  border-radius: 8px;
+  max-width: 1000px;
+  max-height: 750px;
+  width: 100%;
+  z-index: 5;
+  padding: 36px 36px 0 36px;
+  overflow: scroll;
+
+  .img-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 36px -9px 18px -9px;
+
+    &__each {
+      cursor: ${({ isGlobal }) => (isGlobal ? "auto" : "pointer")};
+      width: calc(20% - 18px);
+      margin: 0 9px 18px 9px;
+      overflow: hidden;
+      padding: 9px;
+      border: 1px solid ${COLOR.getBlack(0.125)};
+      position: relative;
+
+      .img-wrap {
+        background-image: url("/transparent-bg.png");
+        background-size: 27px;
+        position: relative;
+
+        &__preview-bg {
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: 50%;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+
+        &:after {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+        }
+      }
+
+      .txt-wrap {
+        margin: 9px 0 0 0;
+        position: relative;
+      }
+
+      .label {
+        font-weight: 300;
+        font-size: 0.7rem;
+        display: block;
+
+        &--absolute {
+          background-color: ${COLOR.getBlack(0.075)};
+          position: absolute;
+          text-transform: uppercase;
+          right: 0;
+          bottom: 0;
+          font-size: 0.525rem;
+          padding: 2px 4px;
+          border-radius: 2px;
+        }
+      }
+
+      .overlay {
+        background-color: ${COLOR.getWhite(0.8)};
+        color: ${COLOR.black};
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+
+        svg {
+          font-size: 2rem;
+          margin: 9px 0 0 0;
+        }
+      }
+
+      &:hover .overlay {
+        opacity: 1;
+      }
+    }
+  }
+
+  .btn-wrap {
+    position: sticky;
+    background-color: ${COLOR.white};
+    bottom: 0;
+    padding: 36px 0;
+  }
+`;

@@ -24,14 +24,12 @@ export const FillButtonWrapper = styled.button<ButtonProps>`
   padding: 3px 36px 3px 36px;
   position: relative;
 
-  @media ${SCREEN.cursor} {
-    &:hover {
-      background-color: transparent;
-    }
+  &:hover {
+    background-color: transparent;
+  }
 
-    &:hover .label {
-      color: ${COLOR.blue};
-    }
+  &:hover .label {
+    color: ${COLOR.blue};
   }
 
   .label {
@@ -52,14 +50,12 @@ export const OutlineButtonWrapper = styled.button<ButtonProps>`
   padding: 3px 36px 3px 36px;
   position: relative;
 
-  @media ${SCREEN.cursor} {
-    &:hover {
-      background-color: ${COLOR.blue};
-    }
+  &:hover {
+    background-color: ${COLOR.blue};
+  }
 
-    &:hover .label {
-      color: ${COLOR.white};
-    }
+  &:hover .label {
+    color: ${COLOR.white};
   }
 
   .label {
@@ -80,14 +76,12 @@ export const DangerButtonWrapper = styled.button<ButtonProps>`
   padding: 3px 36px 3px 36px;
   position: relative;
 
-  @media ${SCREEN.cursor} {
-    &:hover {
-      background-color: transparent;
-    }
+  &:hover {
+    background-color: transparent;
+  }
 
-    &:hover .label {
-      color: ${COLOR.red};
-    }
+  &:hover .label {
+    color: ${COLOR.red};
   }
 
   .label {
@@ -100,7 +94,7 @@ export const SpecialButtonWrapper = styled.button<ButtonProps>`
   ${alignCss}
   ${({ disabled }) => disabled && disabledCss}
   background-color: ${COLOR.white};
-  border: 1px ${COLOR.blue} solid;
+  border: 1px ${COLOR.black} solid;
   cursor: pointer;
   padding: 0;
   border-radius: 7px;
@@ -108,22 +102,20 @@ export const SpecialButtonWrapper = styled.button<ButtonProps>`
   padding: 3px 22px 3px 40px;
   position: relative;
 
-  @media ${SCREEN.cursor} {
-    &:hover {
-      background-color: ${COLOR.yellow};
-    }
+  &:hover {
+    background-color: ${COLOR.yellow};
+  }
 
-    &:hover .label {
-      color: ${COLOR.blue};
-    }
+  &:hover .label {
+    color: ${COLOR.black};
+  }
 
-    &:hover .icon--front {
-      color: ${COLOR.blue};
-    }
+  &:hover .icon--front {
+    color: ${COLOR.black};
   }
 
   .label {
-    color: ${COLOR.blue};
+    color: ${COLOR.black};
     font-size: 0.95rem;
   }
 
@@ -138,7 +130,7 @@ export const SpecialButtonWrapper = styled.button<ButtonProps>`
     }
 
     &--front {
-      color: ${COLOR.blue};
+      color: ${COLOR.black};
       transform: rotate(90deg);
       left: 17px;
       top: 11px;

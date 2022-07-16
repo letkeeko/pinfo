@@ -10,15 +10,21 @@ const useLinksStore = create<LinksStoreProps>((set, get) => ({
 
   invalidUrls: [],
 
-  isModalOpen: false,
-
   searchablePlatforms: platformOptions,
+
+  isModalLinks: false,
+
+  // simply toggle the modal
+  toggleModalLinks: () => {
+    set(({ isModalLinks }) => ({
+      isModalLinks: !isModalLinks,
+    }));
+  },
 
   handleSearchPlatform: (value) => {
     // if empty simply reset back to full list
     if (!value.length) {
-      set((state) => ({
-        ...state,
+      set(() => ({
         searchablePlatforms: platformOptions,
       }));
     }
@@ -28,40 +34,16 @@ const useLinksStore = create<LinksStoreProps>((set, get) => ({
         platform.value.includes(value.toLowerCase())
       );
 
-      set((state) => ({ ...state, searchablePlatforms: filteredPlatforms }));
-    }
-  },
-
-  handleModal: (value) => {
-    if (value) {
-      set((state) => ({
-        ...state,
-        isModalOpen: value,
-        searchablePlatforms: platformOptions,
-      }));
-    }
-
-    // if no value pass, simply toggle it
-    if (!value) {
-      set((state) => {
-        const { isModalOpen } = state;
-
-        return {
-          ...state,
-          isModalOpen: !isModalOpen,
-          searchablePlatforms: platformOptions,
-        };
-      });
+      set(() => ({ searchablePlatforms: filteredPlatforms }));
     }
   },
 
   handleAddPlatform: (value) => {
     const links = get().links;
 
-    set((state) => ({
-      ...state,
+    set(() => ({
       links: [...links, value],
-      isModalOpen: false,
+      isModalLinks: false,
     }));
   },
 
@@ -73,16 +55,14 @@ const useLinksStore = create<LinksStoreProps>((set, get) => ({
         (linkId) => linkId !== value
       );
 
-      set((state) => ({
-        ...state,
+      set(() => ({
         deletePrompt: [...filteredDeletePrompt],
       }));
 
       return;
     }
 
-    set((state) => ({
-      ...state,
+    set(() => ({
       deletePrompt: [...deletePrompt, value],
     }));
   },
@@ -103,8 +83,7 @@ const useLinksStore = create<LinksStoreProps>((set, get) => ({
       (currentPlatform) => currentPlatform !== value
     );
 
-    set((state) => ({
-      ...state,
+    set(() => ({
       links: filteredLinks,
       deletePrompt: filteredDeletePrompt,
       invalidUrls: filteredInvalidUrls,
@@ -121,7 +100,7 @@ const useLinksStore = create<LinksStoreProps>((set, get) => ({
 
     handleUrlValidation(platform, url);
 
-    set((state) => ({ ...state, links: [...links] }));
+    set(() => ({ links: [...links] }));
   },
 
   handleUrlValidation: (platform, url) => {
@@ -135,15 +114,13 @@ const useLinksStore = create<LinksStoreProps>((set, get) => ({
       const filteredInvalidUrls = invalidUrls.filter(
         (currentPlatform) => currentPlatform !== platform
       );
-      set((state) => ({
-        ...state,
+      set(() => ({
         invalidUrls: filteredInvalidUrls,
       }));
     }
 
     if (!isValidUrl(url) && !invalidUrls.includes(platform)) {
-      set((state) => ({
-        ...state,
+      set(() => ({
         invalidUrls: [...invalidUrls, platform],
       }));
     }

@@ -18,15 +18,10 @@ const NavBarWrapper = styled.nav`
     padding: 10px 20px;
 
     .link {
-      color: ${COLOR.blue};
+      color: ${COLOR.getBlack(0.625)};
       font-size: 0.935rem;
       margin: 0 30px;
       line-height: 30px;
-      @media ${SCREEN.cursor} {
-        &:hover {
-          color: ${COLOR.yellow};
-        }
-      }
     }
   }
 `;

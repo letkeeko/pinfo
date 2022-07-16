@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { COLOR } from "../../variables";
 
 const InputBarWrapper = styled.div`
-  border: 1px ${COLOR.blue} solid;
+  border: 1px ${COLOR.black} solid;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -17,7 +17,7 @@ const InputBarWrapper = styled.div`
 
   .form {
     .input {
-      color: ${COLOR.blue};
+      color: ${COLOR.black};
       border: 0;
       outline: none;
       border-radius: none;
@@ -26,8 +26,9 @@ const InputBarWrapper = styled.div`
       width: 140px;
 
       &::placeholder {
-        color: ${COLOR.blue};
+        color: ${COLOR.black};
         font-weight: 300;
+        opacity: 0.6;
       }
     }
   }

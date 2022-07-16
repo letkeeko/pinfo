@@ -1,16 +1,16 @@
 import React from "react";
 import LeftBar from "./LeftBar";
 import TopBar from "./TopBar";
-import { LayoutWrapper } from "./style";
+import { AdminLayoutWrapper } from "./style";
+import ModalMediaLibrary from "../Modal/ModalMediaLibrary";
+import useMediaStore from "../../stores/useMediaStore";
+import useDialogStore from "../../stores/useDialogStore";
 import useActivePage from "../../hooks/useActivePage";
 import SeoPreview from "../Panels/Seo/SeoPreview";
-import useLinksStore from "../../stores/useLinksStore";
 import useSeoStore from "../../stores/useSeoStore";
-import ModalLinks from "../Modal/ModalLinks";
 import ModalGuide from "../Modal/ModalGuide";
-import PopToolShare from "../Popover/PopoverShare";
-import PopToolAccount from "../Popover/PopoverAccount";
-import useDialogStore from "../../stores/useDialogStore";
+import PopoverShare from "../Popover/PopoverShare";
+import PopoverAccount from "../Popover/PopoverAccount";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -19,22 +19,27 @@ type LayoutProps = {
 const AdminLayout = (props: LayoutProps) => {
   const { children } = props;
 
-  const isModalLinks = useLinksStore(({ isModalOpen }) => isModalOpen);
-
   const isModalSeo = useSeoStore(({ isModalOpen }) => isModalOpen);
 
   const activePage = useActivePage();
 
-  const isPopToolAccount = useDialogStore(
-    ({ isPopToolAccount }) => isPopToolAccount
+  const isPopoverAccount = useDialogStore(
+    ({ isPopoverAccount }) => isPopoverAccount
   );
 
-  const isPopToolShare = useDialogStore(({ isPopToolShare }) => isPopToolShare);
+  const isPopoverShare = useDialogStore(({ isPopoverShare }) => isPopoverShare);
+
+  const toggleMediaModal = useMediaStore(
+    ({ toggleMediaModal }) => toggleMediaModal
+  );
+
+  const isMediaModal = useMediaStore(({ isMediaModal }) => isMediaModal);
 
   return (
-    <LayoutWrapper>
+    <AdminLayoutWrapper>
       <LeftBar />
       <TopBar />
+
       <div className="flex-row">
         <div className="col col--edit-panel">{children}</div>
         <div className="col col--preview">
@@ -44,14 +49,14 @@ const AdminLayout = (props: LayoutProps) => {
         </div>
       </div>
 
-      {isModalLinks && <ModalLinks />}
-
       {isModalSeo && <ModalGuide />}
 
-      {isPopToolShare && <PopToolShare />}
+      {isPopoverShare && <PopoverShare />}
 
-      {isPopToolAccount && <PopToolAccount />}
-    </LayoutWrapper>
+      {isPopoverAccount && <PopoverAccount />}
+
+      {isMediaModal && <ModalMediaLibrary closeMediaModal={toggleMediaModal} />}
+    </AdminLayoutWrapper>
   );
 };
 

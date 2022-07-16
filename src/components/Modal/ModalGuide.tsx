@@ -1,12 +1,11 @@
 import React from "react";
-import { ModalGuideWrapper } from "./style";
-import ModalContainer from "./ModalContainer";
+import { ModalContainerWrapper, ModalGuideWrapper } from "./style";
 
 const ModalGuide = () => {
   return (
-    <ModalContainer>
+    <ModalContainerWrapper>
       <ModalGuideWrapper>Help guide here</ModalGuideWrapper>
-    </ModalContainer>
+    </ModalContainerWrapper>
   );
 };
 
