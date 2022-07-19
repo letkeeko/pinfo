@@ -1,19 +1,26 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
-import SignupFormWrapper from "./style";
+import { SignupWrapper } from "./style";
 import Input from "../../Input/Input";
 import Button from "../../Button/Button";
 import Spacer from "../../Spacer/Spacer";
 
-const LoginForm = () => {
+const SignupForm = () => {
+  const router = useRouter();
+
+  if (!!router.query.username) {
+    console.log("check username from url");
+  }
+
   return (
-    <SignupFormWrapper>
+    <SignupWrapper>
       <form>
         <div className="username-input-wrap">
           <span className="absolute-txt">site.url/</span>
           <Input
             type="text"
-            placeholder="Username"
+            placeholder="username"
             label="Username"
             name="signup_username"
             required
@@ -56,8 +63,8 @@ const LoginForm = () => {
           Sign Up
         </Button>
       </form>
-    </SignupFormWrapper>
+    </SignupWrapper>
   );
 };
 
-export default LoginForm;
+export default SignupForm;

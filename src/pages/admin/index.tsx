@@ -1,15 +1,15 @@
 import type { NextPage } from "next";
 import Head from "../../components/Head";
 import Pins from "../../components/Panels/Pins/Pins";
-import AdminLayout from "../../components/AdminLayout/AdminLayout";
+import LayoutPrivate from "../../components/LayoutPrivate/LayoutPrivate";
 
 const PinsPage: NextPage = () => {
   return (
     <>
       <Head title="Keeko (@keekopdf) • Pins" description="TBD" />
-      <AdminLayout>
+      <LayoutPrivate>
         <Pins />
-      </AdminLayout>
+      </LayoutPrivate>
     </>
   );
 };

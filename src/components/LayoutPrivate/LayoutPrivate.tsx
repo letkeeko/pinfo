@@ -1,7 +1,7 @@
 import React from "react";
 import LeftBar from "./LeftBar";
 import TopBar from "./TopBar";
-import { AdminLayoutWrapper } from "./style";
+import { LayoutPrivateWrapper } from "./style";
 import ModalMediaLibrary from "../Modal/ModalMediaLibrary";
 import useMediaStore from "../../stores/useMediaStore";
 import useDialogStore from "../../stores/useDialogStore";
@@ -16,7 +16,7 @@ type LayoutProps = {
   children: React.ReactNode;
 };
 
-const AdminLayout = (props: LayoutProps) => {
+const LayoutPrivate = (props: LayoutProps) => {
   const { children } = props;
 
   const isModalSeo = useSeoStore(({ isModalOpen }) => isModalOpen);
@@ -36,7 +36,7 @@ const AdminLayout = (props: LayoutProps) => {
   const isMediaModal = useMediaStore(({ isMediaModal }) => isMediaModal);
 
   return (
-    <AdminLayoutWrapper>
+    <LayoutPrivateWrapper>
       <LeftBar />
       <TopBar />
 
@@ -56,8 +56,8 @@ const AdminLayout = (props: LayoutProps) => {
       {isPopoverAccount && <PopoverAccount />}
 
       {isMediaModal && <ModalMediaLibrary closeMediaModal={toggleMediaModal} />}
-    </AdminLayoutWrapper>
+    </LayoutPrivateWrapper>
   );
 };
 
-export default AdminLayout;
+export default LayoutPrivate;

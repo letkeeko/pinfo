@@ -1,5 +1,5 @@
 import React from "react";
-import LoginFormWrapper from "./style";
+import { LoginWrapper } from "./style";
 import Input from "../../Input/Input";
 import Button from "../../Button/Button";
 import Spacer from "../../Spacer/Spacer";
@@ -11,7 +11,7 @@ const LoginForm = () => {
   };
 
   return (
-    <LoginFormWrapper>
+    <LoginWrapper>
       <form>
         <Input type="email" label="Email address" name="login_email" required />
 
@@ -37,7 +37,7 @@ const LoginForm = () => {
           Sign In
         </Button>
       </form>
-    </LoginFormWrapper>
+    </LoginWrapper>
   );
 };
 

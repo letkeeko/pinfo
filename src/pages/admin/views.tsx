@@ -1,15 +1,15 @@
 import type { NextPage } from "next";
 import Head from "../../components/Head";
 import Views from "../../components/Panels/Views/Views";
-import AdminLayout from "../../components/AdminLayout/AdminLayout";
+import LayoutPrivate from "../../components/LayoutPrivate/LayoutPrivate";
 
 const ViewsPage: NextPage = () => {
   return (
     <>
       <Head title="Keeko (@keekopdf) • Views" description="TBD" />
-      <AdminLayout>
+      <LayoutPrivate>
         <Views />
-      </AdminLayout>
+      </LayoutPrivate>
     </>
   );
 };

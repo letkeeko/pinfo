@@ -99,7 +99,7 @@ export const SpecialButtonWrapper = styled.button<ButtonProps>`
   padding: 0;
   border-radius: 7px;
   line-height: 30px;
-  padding: 3px 22px 3px 40px;
+  padding: 6px 22px 6px 44px;
   position: relative;
 
   &:hover {
@@ -121,19 +121,19 @@ export const SpecialButtonWrapper = styled.button<ButtonProps>`
 
   .icon {
     position: absolute;
-    font-size: 0.9rem;
+    font-size: 1rem;
 
     &--behind {
       color: ${COLOR.yellow};
-      left: 13px;
-      top: 14px;
+      left: 16px;
+      top: 16px;
     }
 
     &--front {
       color: ${COLOR.black};
       transform: rotate(90deg);
-      left: 17px;
-      top: 11px;
+      left: 20px;
+      top: 13px;
     }
   }
 `;
