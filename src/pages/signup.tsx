@@ -1,46 +1,46 @@
 import type { NextPage } from "next";
 import { COLOR } from "../components/variables";
+import LayoutPublic from "../components/LayoutPublic/LayoutPublic";
 import Link from "next/link";
 import styled from "styled-components";
 import Head from "../components/Head";
-import NavBar from "../components/FrontPage/NavBar/NavBar";
 import Heading from "../components/Heading/Heading";
 import Text from "../components/Text/Text";
 import Spacer from "../components/Spacer/Spacer";
-import SignupForm from "../components/FrontPage/SignupForm/SignupForm";
+import SignupForm from "../components/LayoutPublic/Forms/Signup";
 
 const Signup: NextPage = () => {
   return (
-    <Wrapper>
+    <LayoutPublic>
       <Head title="Sign Up" description="TBD" />
 
-      <div className="flex-row">
-        <div className="col col--white">
-          <NavBar />
+      <Wrapper>
+        <div className="flex-row">
+          <div className="col col--white">
+            <Spacer length={48} />
 
-          <Spacer length={48} />
+            <Heading as="h1">Free forever</Heading>
 
-          <Heading as="h1">Free forever</Heading>
+            <Spacer length={8} />
 
-          <Spacer length={8} />
+            <Text>
+              Already have an account?{" "}
+              <Link href="/login">
+                <a>Sign in</a>
+              </Link>
+            </Text>
 
-          <Text>
-            Already have an account?{" "}
-            <Link href="/login">
-              <a>Sign in</a>
-            </Link>
-          </Text>
+            <Spacer length={42} />
 
-          <Spacer length={42} />
+            <SignupForm />
+          </div>
 
-          <SignupForm />
+          <div className="col col--blue">
+            <h1>Picture</h1>
+          </div>
         </div>
-
-        <div className="col col--blue">
-          <h1>Picture</h1>
-        </div>
-      </div>
-    </Wrapper>
+      </Wrapper>
+    </LayoutPublic>
   );
 };
 
@@ -50,7 +50,7 @@ const Wrapper = styled.div`
 
   .flex-row {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
 
     .col {
       width: 50%;
@@ -59,12 +59,14 @@ const Wrapper = styled.div`
       flex-direction: column;
 
       &--white {
+        padding: 250px 0 250px 0;
       }
 
       &--blue {
         background-color: ${COLOR.blue};
         color: ${COLOR.white};
         justify-content: center;
+        padding: 250px 0 250px 0;
       }
     }
   }

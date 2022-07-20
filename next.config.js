@@ -5,7 +5,7 @@ const nextConfig = {
     styledComponents: true,
     reactStrictMode: true,
   },
-  images: { domains: ["images.pexels.com"] },
+  images: { domains: ["images.ctfassets.net", "images.pexels.com"] },
 };
 
 module.exports = nextConfig;

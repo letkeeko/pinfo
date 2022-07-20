@@ -1,46 +1,46 @@
 import type { NextPage } from "next";
 import { COLOR } from "../components/variables";
+import LayoutPublic from "../components/LayoutPublic/LayoutPublic";
 import Link from "next/link";
 import styled from "styled-components";
 import Head from "../components/Head";
-import NavBar from "../components/FrontPage/NavBar/NavBar";
 import Heading from "../components/Heading/Heading";
 import Text from "../components/Text/Text";
 import Spacer from "../components/Spacer/Spacer";
-import LoginForm from "../components/FrontPage/LoginForm/LoginForm";
+import LoginForm from "../components/LayoutPublic/Forms/Login";
 
 const Login: NextPage = () => {
   return (
-    <Wrapper>
+    <LayoutPublic>
       <Head title="Log In" description="TBD" />
 
-      <div className="flex-row">
-        <div className="col col--white">
-          <NavBar />
+      <Wrapper>
+        <div className="flex-row">
+          <div className="col col--white">
+            <Spacer length={48} />
 
-          <Spacer length={48} />
+            <Heading as="h1">Welcome back</Heading>
 
-          <Heading as="h1">Welcome back</Heading>
+            <Spacer length={8} />
 
-          <Spacer length={8} />
+            <Text>
+              Don&apos;t have an account?{" "}
+              <Link href="/signup">
+                <a>Sign up</a>
+              </Link>
+            </Text>
 
-          <Text>
-            Don&apos;t have an account?{" "}
-            <Link href="/signup">
-              <a>Sign up</a>
-            </Link>
-          </Text>
+            <Spacer length={42} />
 
-          <Spacer length={42} />
+            <LoginForm />
+          </div>
 
-          <LoginForm />
+          <div className="col col--blue">
+            <h1>Picture</h1>
+          </div>
         </div>
-
-        <div className="col col--blue">
-          <h1>Picture</h1>
-        </div>
-      </div>
-    </Wrapper>
+      </Wrapper>
+    </LayoutPublic>
   );
 };
 

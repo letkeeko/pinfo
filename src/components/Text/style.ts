@@ -11,6 +11,10 @@ export const TextWrapper = styled.p<TextProps>`
   a {
     color: ${COLOR.black};
     text-decoration: underline;
+
+    &:hover {
+      color: ${COLOR.blue};
+    }
   }
 `;
 

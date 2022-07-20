@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { COLOR } from "../variables";
 
-export const AdminLayoutWrapper = styled.div`
+export const LayoutPrivateWrapper = styled.div`
   color: ${COLOR.black};
   margin: 0 auto;
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { COLOR } from "../../variables";
 
-const SignupFormWrapper = styled.div`
+export const SignupWrapper = styled.div`
   max-width: 370px;
   width: 100%;
 
@@ -10,7 +10,7 @@ const SignupFormWrapper = styled.div`
 
     .absolute-txt {
       position: absolute;
-      top: 30px;
+      top: 32px;
       left: 13px;
       color: ${COLOR.getBlack(0.35)};
       pointer-events: none;
@@ -43,4 +43,22 @@ const SignupFormWrapper = styled.div`
   }
 `;
 
-export default SignupFormWrapper;
+export const LoginWrapper = styled.div`
+  max-width: 370px;
+  width: 100%;
+
+  .btn-text {
+    color: ${COLOR.black};
+    display: block;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 0 0 0 auto;
+    border: 0;
+    border-radius: none;
+    font-size: 0.675rem;
+
+    &:hover {
+      color: ${COLOR.blue};
+    }
+  }
+`;

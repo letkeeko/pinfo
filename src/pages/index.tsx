@@ -1,72 +1,105 @@
 import type { NextPage } from "next";
+import contentfulClient from "../lib/contentful";
+import { Document } from "@contentful/rich-text-types";
 import { COLOR } from "../components/variables";
+import LayoutPublic from "../components/LayoutPublic/LayoutPublic";
 import styled from "styled-components";
 import Head from "../components/Head";
-import NavBar from "../components/FrontPage/NavBar/NavBar";
-import InputBar from "../components/FrontPage/InputBar/InputBar";
-import Heading from "../components/Heading/Heading";
-import Text from "../components/Text/Text";
-import Spacer from "../components/Spacer/Spacer";
+import Hero from "../components/LayoutPublic/Hero";
+import Slides from "../components/LayoutPublic/Slides/Slides";
+import Featured from "../components/LayoutPublic/Featured/Featured";
 
-const Home: NextPage = () => {
+export async function getStaticProps() {
+  const response = await contentfulClient.getEntry("5FE7YEIDZtZXH5LqTqL2bD");
+
+  return {
+    props: {
+      home: response.fields as string,
+      updatedAt: response.sys.updatedAt,
+    },
+  };
+}
+
+export type SlideProps = {
+  fields: {
+    file: {
+      url: string;
+      details: {
+        image: {
+          width: number;
+          height: number;
+        };
+      };
+    };
+    title: string;
+  };
+};
+
+export type FeaturedProps = {
+  index: number;
+  fields: {
+    heading: string;
+    description: string;
+    ctaLink: string;
+    image: {
+      fields: {
+        title: string;
+        file: {
+          url: string;
+          details: {
+            image: {
+              width: number;
+              height: number;
+            };
+          };
+        };
+      };
+    };
+  };
+};
+
+type HomeProps = {
+  home: {
+    metaTitle: string;
+    metaDescription: string;
+    inputFootnote: string;
+    heroText: Document;
+    slides: SlideProps[];
+    featuredSections: FeaturedProps[];
+  };
+};
+
+const Home: NextPage<HomeProps> = (props) => {
+  const {
+    metaTitle,
+    metaDescription,
+    heroText,
+    inputFootnote,
+    slides,
+    featuredSections,
+  } = props.home;
+
   return (
-    <Wrapper>
-      <Head title="Pinfo" description="TBD" />
+    <LayoutPublic>
+      <Head title={metaTitle} description={metaDescription} />
 
-      <div className="flex-row">
-        <div className="col col--white">
-          <NavBar />
+      <Wrapper>
+        <Hero heroText={heroText} inputFootnote={inputFootnote} />
 
-          <Spacer length={48} />
+        <Slides slides={slides} />
 
-          <Heading as="h1">
-            Pin your <strong>FAQ&apos;s</strong>
-            <br />
-            or other information
-          </Heading>
-
-          <Spacer length={8} />
-
-          <Text>A perfect way to share everything you have going on.</Text>
-
-          <Spacer length={42} />
-          <InputBar />
-          <Spacer length={14} />
-
-          <Text>It&apos;s free, create your own page in minutes.</Text>
-        </div>
-        <div className="col col--blue">
-          <h1>Accordion</h1>
-        </div>
-      </div>
-    </Wrapper>
+        {featuredSections.map((section, index) => (
+          <Featured key={index} fields={section.fields} index={index + 1} />
+        ))}
+      </Wrapper>
+    </LayoutPublic>
   );
 };
 
 const Wrapper = styled.div`
   color: ${COLOR.black};
   margin: 0 auto;
-
-  .flex-row {
-    display: flex;
-    height: 100vh;
-
-    .col {
-      width: 50%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-
-      &--white {
-      }
-
-      &--blue {
-        background-color: ${COLOR.blue};
-        color: ${COLOR.white};
-        justify-content: center;
-      }
-    }
-  }
+  padding: 250px 0 250px 0;
 `;
 
 export default Home;
