@@ -56,5 +56,9 @@ export const LoginWrapper = styled.div`
     border: 0;
     border-radius: none;
     font-size: 0.675rem;
+
+    &:hover {
+      color: ${COLOR.blue};
+    }
   }
 `;

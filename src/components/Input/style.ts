@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { COLOR } from "../variables";
 
-const InputWrapper = styled.div`
+export const InputWrapper = styled.div`
   .input {
     border: 1px ${COLOR.black} solid;
     color: ${COLOR.black};
@@ -31,4 +31,18 @@ const InputWrapper = styled.div`
   }
 `;
 
-export default InputWrapper;
+export const WarningWrapper = styled.div`
+  background-color: ${COLOR.purple};
+  color: ${COLOR.white};
+  margin: 3px 0 0 0;
+  max-width: max-content;
+  border-radius: 5px;
+
+  p {
+    font-weight: 300;
+    font-size: 0.725rem;
+
+    display: table;
+    padding: 9px 10px;
+  }
+`;

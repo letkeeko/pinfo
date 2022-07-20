@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import { useRouter } from "next/router";
 import { COLOR } from "../components/variables";
 import LayoutPublic from "../components/LayoutPublic/LayoutPublic";
 import Link from "next/link";
